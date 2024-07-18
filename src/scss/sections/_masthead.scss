@@ -20,6 +20,14 @@
     }
 }
 
+.masthead-avatar {
+    width: 200px; // Adjust size as needed
+    height: 200px; // Adjust size as needed
+    border-radius: 50%; // Makes the image a circle
+    object-fit: cover; // Ensures the image covers the area without distortion
+    border: 5px solid $primary; // Optional: adds a border around the image
+}
+
 @include media-breakpoint-up(lg) {
     .masthead {
         padding-top: calc(6rem + 104px);

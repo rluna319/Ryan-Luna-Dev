@@ -1,7 +1,7 @@
 /*!
-* Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
+* Start Bootstrap - Ryan Luna | Developer Hub v1.0.0 (https://my-portfolio.com)
+* Copyright 2013-2024 Ryan Luna
+* Licensed under MIT (https://github.com/StartBootstrap/my-portfolio/blob/master/LICENSE)
 */
 //
 // Scripts
@@ -50,5 +50,24 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+
+    // Show/hide company field based on recruiter selection
+    const recruiterYes = document.getElementById('recruiter-yes');
+    const recruiterNo = document.getElementById('recruiter-no');
+    const companyField = document.getElementById('companyField');
+
+    if (recruiterYes && recruiterNo && companyField) {
+        recruiterYes.addEventListener('change', function() {
+            if (recruiterYes.checked) {
+                companyField.classList.add('show');
+            }
+        });
+
+        recruiterNo.addEventListener('change', function() {
+            if (recruiterNo.checked) {
+                companyField.classList.remove('show');
+            }
+        });
+    }
 
 });

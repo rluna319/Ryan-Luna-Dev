@@ -3,12 +3,16 @@
 // 
 
 //- Override and add to color system
-$teal: #1abc9c;
-$dark-blue: #2c3e50;
+$dark-gray: #1C1C21;
+$darker-gray: #131316;
+
+// //- Override and add to color system
+// $teal: #6D3B47;
+// $dark-blue: #453A49;
 
 //- Override primary color
-$primary: $teal;
-$secondary: $dark-blue;
+$primary: $dark-gray;
+$secondary: $darker-gray;
 
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
 // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast

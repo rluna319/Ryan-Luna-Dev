@@ -28,14 +28,16 @@ html(lang='en')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
             .container
-                a.navbar-brand(href='#page-top') Start Bootstrap
+                a.navbar-brand(href='#page-top') Ryan Luna
                 button.navbar-toggler.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     | Menu 
                     i.fas.fa-bars
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto
                         li.nav-item.mx-0.mx-lg-1
-                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#portfolio') Portfolio
+                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#portfolio') Projects
+                        li.nav-item.mx-0.mx-lg-1
+                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#portfolio') Publications
                         li.nav-item.mx-0.mx-lg-1
                             a.nav-link.py-3.px-0.px-lg-3.rounded(href='#about') About
                         li.nav-item.mx-0.mx-lg-1
@@ -45,73 +47,137 @@ html(lang='en')
         header.masthead.bg-primary.text-white.text-center
             .container.d-flex.align-items-center.flex-column
                 // Masthead Avatar Image
-                img.masthead-avatar.mb-5(src='assets/img/avataaars.svg', alt='...')
+                img.masthead-avatar.mb-5(src='assets/img/me/headshot1.jpg', alt='...')
                 // Masthead Heading
-                h1.masthead-heading.text-uppercase.mb-0 Start Bootstrap
-                // Icon Divider
-                .divider-custom.divider-light
-                    .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-star
-                    .divider-custom-line
+                h1.masthead-heading.mb-0 Hey, I'm Ryan.
+                h1.masthead-heading.mb-0.mt-3 Welcome to my developer hub!
                 // Masthead Subheading
-                p.masthead-subheading.font-weight-light.mb-0 Graphic Artist - Web Designer - Illustrator
+                p.masthead-subheading.font-weight-light.mb-0.mt-5 Embedded Systems - Swarm Robotics - Software Engineer
 
-        // Portfolio Section
+        //- // Portfolio Section
+        //- section#portfolio.page-section.portfolio
+        //-     .container
+        //-         // Portfolio Section Heading
+        //-         h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Projects
+        //-         // Icon Divider
+        //-         .divider-custom
+        //-             .divider-custom-line
+        //-             .divider-custom-icon
+        //-                 i.fas.fa-star
+        //-             .divider-custom-line
+        //-         // Portfolio Grid Items
+        //-         .row.justify-content-center
+        //-             // Portfolio Item 1
+        //-             .col-md-6.col-lg-4.mb-5
+        //-                 .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal1')
+        //-                     .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+        //-                         .portfolio-item-caption-content.text-center.text-white
+        //-                             i.fas.fa-plus.fa-3x
+        //-                     img.img-fluid(src='assets/img/portfolio/cabin.png', alt='...')
+        //-             // Portfolio Item 2
+        //-             .col-md-6.col-lg-4.mb-5
+        //-                 .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal2')
+        //-                     .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+        //-                         .portfolio-item-caption-content.text-center.text-white
+        //-                             i.fas.fa-plus.fa-3x
+        //-                     img.img-fluid(src='assets/img/portfolio/cake.png', alt='...')
+        //-             // Portfolio Item 3
+        //-             .col-md-6.col-lg-4.mb-5
+        //-                 .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal3')
+        //-                     .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+        //-                         .portfolio-item-caption-content.text-center.text-white
+        //-                             i.fas.fa-plus.fa-3x
+        //-                     img.img-fluid(src='assets/img/portfolio/circus.png', alt='...')
+        //-             // Portfolio Item 4
+        //-             .col-md-6.col-lg-4.mb-5.mb-lg-0
+        //-                 .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal4')
+        //-                     .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+        //-                         .portfolio-item-caption-content.text-center.text-white
+        //-                             i.fas.fa-plus.fa-3x
+        //-                     img.img-fluid(src='assets/img/portfolio/game.png', alt='...')
+        //-             // Portfolio Item 5
+        //-             .col-md-6.col-lg-4.mb-5.mb-md-0
+        //-                 .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal5')
+        //-                     .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+        //-                         .portfolio-item-caption-content.text-center.text-white
+        //-                             i.fas.fa-plus.fa-3x
+        //-                     img.img-fluid(src='assets/img/portfolio/safe.png', alt='...')
+        //-             // Portfolio Item 6
+        //-             .col-md-6.col-lg-4
+        //-                 .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal6')
+        //-                     .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+        //-                         .portfolio-item-caption-content.text-center.text-white
+        //-                             i.fas.fa-plus.fa-3x
+        //-                     img.img-fluid(src='assets/img/portfolio/submarine.png', alt='...')
+
+        // Projects Section
         section#portfolio.page-section.portfolio
             .container
-                // Portfolio Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Portfolio
+                // Projects Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Recent Projects
                 // Icon Divider
                 .divider-custom
+                    .divider-custom-icon 
+                        i.fas.fa-angle-left
                     .divider-custom-line
                     .divider-custom-icon
-                        i.fas.fa-star
-                    .divider-custom-line
-                // Portfolio Grid Items
+                        i.fas.fa-angle-right
+                // Projects List
                 .row.justify-content-center
-                    // Portfolio Item 1
-                    .col-md-6.col-lg-4.mb-5
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal1')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/cabin.png', alt='...')
-                    // Portfolio Item 2
-                    .col-md-6.col-lg-4.mb-5
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal2')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/cake.png', alt='...')
-                    // Portfolio Item 3
-                    .col-md-6.col-lg-4.mb-5
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal3')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/circus.png', alt='...')
-                    // Portfolio Item 4
-                    .col-md-6.col-lg-4.mb-5.mb-lg-0
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal4')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/game.png', alt='...')
-                    // Portfolio Item 5
-                    .col-md-6.col-lg-4.mb-5.mb-md-0
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal5')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/safe.png', alt='...')
-                    // Portfolio Item 6
-                    .col-md-6.col-lg-4
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal6')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/submarine.png', alt='...')
+                    .col-lg-8
+                        ul.list-unstyled
+                            li.mb-4
+                                h4.text-secondary Hydrodynamics-Based Flocking and Obstacle Avoidance for Robot Swarms
+                                p May 2024 - Present
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Hydroflock', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms
+                                p Aug 2023 - May 2024
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Foraging_Swarm_Defense', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
+                                p Jan 2023 - Jun 2023
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Adaptive-Multiple-Distributed-Spiral-Search-Algorithm', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms
+                                p Aug 2022 - May 2023
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/CPFA_DoS', target='_blank') Check it out!
+                            //- li.mb-4
+                            //-     h4.text-secondary RTEC (Rapid Transport Environmental Chamber)
+                            //-     p Feb 2018 - Dec 2019
+                            //- li.mb-4
+                            //-     h4.text-secondary Object Detection Application for Android
+                            //-     p Jan 2019 - Jun 2019
+
+        // Research Publications Section
+        section#publications.page-section.publications
+            .container
+                // Research Publications Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Research Publications
+                // Icon Divider
+                .divider-custom
+                    .divider-custom-icon 
+                        i.fas.fa-angle-left
+                    .divider-custom-line
+                    .divider-custom-icon
+                        i.fas.fa-angle-right
+                // Publications List
+                .row.justify-content-center
+                    .col-lg-8
+                        ul.list-unstyled
+                            li.mb-4
+                                h4.text-secondary Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
+                                p IEEE · Jun 6, 2023
+                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/10229868', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Reliability and Security of Extreme Parallelism
+                                p IEEE · Oct 19, 2021
+                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/9580723', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Security and Reliability of Safety-Critical RTOS
+                                p Springer Nature · Jun 25, 2021
+                                a.btn.btn-primary(href='https://rdcu.be/cneJY', target='_blank') Check it out!
+
 
         // About Section
         section#about.page-section.bg-primary.text-white.mb-0
@@ -119,24 +185,27 @@ html(lang='en')
                 // About Section Heading
                 h2.page-section-heading.text-center.text-uppercase.text-white About
                 // Icon Divider
-                .divider-custom.divider-light
+                .divider-custom.divider-white
+                    .divider-custom-icon 
+                        i.fas.fa-angle-left
                     .divider-custom-line
                     .divider-custom-icon
-                        i.fas.fa-star
-                    .divider-custom-line
+                        i.fas.fa-angle-right
                 // About Section Content
-                .row
-                    .col-lg-4.ms-auto
+                .row.align-items-center
+                    .col-lg-5.me-auto
+                        img.img-fluid.mb-4(src='assets/img/me/conference-presentation-photo.jpg', alt='Your Photo')
+                    .col-lg-7.ms-auto.text-start
+                        h4 Innovative
                         p.lead
-                            | Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.
-                    .col-lg-4.me-auto
+                            | As a recent graduate with a Master's in Computer Science, I have conducted research in distributed/decentralized systems and developed creative solutions across various projects. My work demonstrates my ability to tackle complex problems and innovate within diverse technological domains.
+                        h4 Driven
                         p.lead
-                            | You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!
-                // About Section Button
-                .text-center.mt-4
-                    a.btn.btn-xl.btn-outline-light(href='https://startbootstrap.com/theme/freelancer/')
-                        i.fas.fa-download.me-2
-                        | Free Download!
+                            | My academic journey is marked by a strong commitment to excellence, evidenced by graduating summa cum laude and receiving the Outstanding Student of the Year award twice. I continuously strive to expand my knowledge and skills through post-graduate research and hands-on projects.
+                        h4 Analytical
+                        p.lead
+                            | With expertise in C, C++, and Python, I excel in analyzing and improving complex systems. My research background and experience in software development demonstrate my ability to critically evaluate and enhance technological solutions, making me versatile and adaptable to roles across the software development stack.
+
 
         // Contact Section
         section#contact.page-section
@@ -145,25 +214,22 @@ html(lang='en')
                 h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contact Me
                 // Icon Divider
                 .divider-custom
+                    .divider-custom-icon 
+                        i.fas.fa-angle-left
                     .divider-custom-line
                     .divider-custom-icon
-                        i.fas.fa-star
-                    .divider-custom-line
+                        i.fas.fa-angle-right
                 // Contact Section Form
                 .row.justify-content-center
                     .col-lg-8.col-xl-7
-
                         // * * * * * * * * * * * * * * *
                         // * * SB Forms Contact Form * *
                         // * * * * * * * * * * * * * * *
-
                         // This form is pre-integrated with SB Forms.
                         // To make this form functional, sign up at
                         // https://startbootstrap.com/solution/contact-forms
                         // to get an API token!
-
                         form#contactForm(data-sb-form-api-token='API_TOKEN')
-
                             // Name input
                             .form-floating.mb-3
                                 input#name.form-control(
@@ -174,7 +240,6 @@ html(lang='en')
                                 label(for='name') Full name
                                 .invalid-feedback(data-sb-feedback='name:required')
                                     | A name is required.
-
                             // Email address input
                             .form-floating.mb-3
                                 input#email.form-control(
@@ -187,18 +252,13 @@ html(lang='en')
                                     | An email is required.
                                 .invalid-feedback(data-sb-feedback='email:email')
                                     | Email is not valid.
-
                             // Phone number input
                             .form-floating.mb-3
                                 input#phone.form-control(
                                     type='tel',
-                                    placeholder='(123) 456-7890',
-                                    data-sb-validations='required'
+                                    placeholder='(123) 456-7890'
                                 )
-                                label(for='phone') Phone number
-                                .invalid-feedback(data-sb-feedback='phone:required')
-                                    | A phone number is required.
-
+                                label(for='phone') Phone number (optional)
                             // Message input
                             .form-floating.mb-3
                                 textarea#message.form-control(
@@ -210,29 +270,64 @@ html(lang='en')
                                 label(for='message') Message
                                 .invalid-feedback(data-sb-feedback='message:required')
                                     | A message is required.
+                            // Recruiter question
+                            .form-floating.mb-3
+                                .d-flex.align-items-center
+                                    label.form-label.me-3(for='recruiter') Are you a recruiter?
+                                    .form-check.form-check-inline
+                                        input.form-check-input#recruiter-yes(
+                                            type='radio',
+                                            name='recruiter',
+                                            value='yes',
+                                            data-sb-validations='required'
+                                        )
+                                        label.form-check-label(for='recruiter-yes') Yes
+                                    .form-check.form-check-inline
+                                        input.form-check-input#recruiter-no(
+                                            type='radio',
+                                            name='recruiter',
+                                            value='no',
+                                            checked,
+                                            data-sb-validations='required'
+                                        )
+                                        label.form-check-label(for='recruiter-no') No
+                                .invalid-feedback.d-block(data-sb-feedback='recruiter:required')
+                                    | Please select an option.
+                                // Company field, visible when 'Yes' is selected
+                                .collapse#companyField
+                                    .form-floating.mb-3
+                                        input#company.form-control(
+                                            type='text',
+                                            placeholder='Enter your company...',
+                                            data-sb-validations='required'
+                                        )
+                                        label(for='company') Company or Business Name
+                                        .invalid-feedback(data-sb-feedback='company:required')
+                                            | A company or business name is required.
+
+
+
+
 
                             // Submit success message
                             //
                             // This is what your users will see when the form
                             // has successfully submitted
-
                             #submitSuccessMessage.d-none
                                 .text-center.mb-3
                                     .fw-bolder Form submission successful!
                                     | To activate this form, sign up at
                                     br
                                     a(href='https://startbootstrap.com/solution/contact-forms') https://startbootstrap.com/solution/contact-forms
-
                             // Submit error message
                             //
                             // This is what your users will see when there is
                             // an error submitting the form
-
                             #submitErrorMessage.d-none
                                 .text-center.text-danger.mb-3 Error sending message!
-
                             // Submit Button
                             button#submitButton.btn.btn-primary.btn-xl.disabled(type='submit') Send
+
 
         // Footer
         footer.footer.text-center
@@ -242,32 +337,20 @@ html(lang='en')
                     .col-lg-4.mb-5.mb-lg-0
                         h4.text-uppercase.mb-4 Location
                         p.lead.mb-0
-                            | 2215 John Daniel Drive
-                            br
-                            | Clark, MO 65243
+                            | McAllen, TX, USA
                     // Footer Social Icons
                     .col-lg-4.mb-5.mb-lg-0
                         h4.text-uppercase.mb-4 Around the Web
                         a.btn.btn-outline-light.btn-social.mx-1(href='#!')
-                            i.fab.fa-fw.fa-facebook-f
-                        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
-                            i.fab.fa-fw.fa-twitter
+                            i.fab.fa-fw.fa-github
                         a.btn.btn-outline-light.btn-social.mx-1(href='#!')
                             i.fab.fa-fw.fa-linkedin-in
-                        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
-                            i.fab.fa-fw.fa-dribbble
-                    // Footer About Text
-                    .col-lg-4
-                        h4.text-uppercase.mb-4 About Freelancer
-                        p.lead.mb-0
-                            | Freelance is a free to use, MIT licensed Bootstrap theme created by 
-                            a(href='http://startbootstrap.com') Start Bootstrap
-                            | .
+                        
 
         // Copyright Section
         div.copyright.py-4.text-center.text-white
             .container
-                small Copyright &copy; Your Website 2023
+                small Copyright &copy; Ryan Luna 2024
 
         // Portfolio Modals
         include includes/portfolio-modal-1.pug

@@ -46,4 +46,23 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Show/hide company field based on recruiter selection
+    const recruiterYes = document.getElementById('recruiter-yes');
+    const recruiterNo = document.getElementById('recruiter-no');
+    const companyField = document.getElementById('companyField');
+
+    if (recruiterYes && recruiterNo && companyField) {
+        recruiterYes.addEventListener('change', function() {
+            if (recruiterYes.checked) {
+                companyField.classList.add('show');
+            }
+        });
+
+        recruiterNo.addEventListener('change', function() {
+            if (recruiterNo.checked) {
+                companyField.classList.remove('show');
+            }
+        });
+    }
+
 });
