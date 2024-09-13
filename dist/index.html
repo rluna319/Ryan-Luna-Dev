@@ -181,25 +181,25 @@
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" autocomplete="name" />
                                 <label for="name">Full name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" autocomplete="email" />
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" />
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" autocomplete="tel" />
                                 <label for="phone">Phone number (optional)</label>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required" autocomplete="off"></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
@@ -220,7 +220,7 @@
                                 <!-- Company field, visible when 'Yes' is selected-->
                                 <div class="collapse" id="companyField" aria-hidden="true">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="company" type="text" placeholder="Enter your company..." data-sb-validations="required" disabled />
+                                        <input class="form-control" id="company" type="text" placeholder="Enter your company..." data-sb-validations="required" disabled autocomplete="organization" />
                                         <label for="company">Company or Business Name</label>
                                         <div class="invalid-feedback" data-sb-feedback="company:required">A company or business name is required.</div>
                                     </div>
@@ -262,8 +262,8 @@
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-github"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!" aria-label="Github"><i class="fab fa-fw fa-github"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!" aria-label="LinkedIn"><i class="fab fa-fw fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
