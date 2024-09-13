@@ -246,12 +246,13 @@ html(lang='en')
                                 .invalid-feedback.d-block(data-sb-feedback='recruiter:required')
                                     | Please select an option.
                                 // Company field, visible when 'Yes' is selected
-                                .collapse#companyField
+                                .collapse#companyField(aria-hidden='true')
                                     .form-floating.mb-3
                                         input#company.form-control(
                                             type='text',
                                             placeholder='Enter your company...',
-                                            data-sb-validations='required'
+                                            data-sb-validations='required',
+                                            disabled
                                         )
                                         label(for='company') Company or Business Name
                                         .invalid-feedback(data-sb-feedback='company:required')
@@ -305,12 +306,12 @@ html(lang='en')
                 small Copyright &copy; Ryan Luna 2024
 
         // Portfolio Modals
-        include includes/portfolio-modal-1.pug
-        include includes/portfolio-modal-2.pug
-        include includes/portfolio-modal-3.pug
-        include includes/portfolio-modal-4.pug
-        include includes/portfolio-modal-5.pug
-        include includes/portfolio-modal-6.pug
+        //- include includes/portfolio-modal-1.pug
+        //- include includes/portfolio-modal-2.pug
+        //- include includes/portfolio-modal-3.pug
+        //- include includes/portfolio-modal-4.pug
+        //- include includes/portfolio-modal-5.pug
+        //- include includes/portfolio-modal-6.pug
 
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')

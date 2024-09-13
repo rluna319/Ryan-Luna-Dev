@@ -55,19 +55,25 @@ window.addEventListener('DOMContentLoaded', event => {
     const recruiterYes = document.getElementById('recruiter-yes');
     const recruiterNo = document.getElementById('recruiter-no');
     const companyField = document.getElementById('companyField');
+    const companyInput = document.getElementById('company');
 
-    if (recruiterYes && recruiterNo && companyField) {
+    if (recruiterYes && recruiterNo && companyField && companyInput) {
         recruiterYes.addEventListener('change', function() {
             if (recruiterYes.checked) {
                 companyField.classList.add('show');
+                companyField.setAttribute('aria-hidden', 'false');
+                companyInput.removeAttribute('disabled');
             }
         });
 
         recruiterNo.addEventListener('change', function() {
             if (recruiterNo.checked) {
                 companyField.classList.remove('show');
+                companyField.setAttribute('aria-hidden', 'true');
+                companyInput.setAttribute('disabled', 'disabled');
             }
         });
     }
+
 
 });
