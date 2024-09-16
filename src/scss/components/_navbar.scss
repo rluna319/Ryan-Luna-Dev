@@ -8,12 +8,16 @@
     font-family: $headings-font-family;
     font-weight: $headings-font-weight;
 
+    // my name
     .navbar-brand {
         color: $white;
+        margin-right: auto; // push to the left
+        
     }
 
     .navbar-nav {
         margin-top: 1rem;
+        margin-left: auto; // push to the right
 
         li.nav-item {
             a.nav-link {
@@ -33,11 +37,6 @@
                 }
             }
         }
-    }
-
-    .navbar-toggler {
-        font-size: 80%;
-        padding: 0.8rem;
     }
 }
 

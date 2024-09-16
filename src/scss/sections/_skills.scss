@@ -1,0 +1,31 @@
+#skills{
+    .skills-container {
+        display: flex;
+        gap: 15px; // Add spacing between the icons
+        overflow-x: auto;
+        padding: 10px;
+        scroll-behavior: smooth; // Smooth scrolling
+        &::-webkit-scrollbar {
+            height: 6px; // Small scrollbar height
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $primary; // Change scrollbar thumb color
+            border-radius: 10px;
+        }
+        a {
+            display: inline-block;
+            flex: 0 0 auto; // Ensures all icons stay in the row
+        }
+        
+        .skill-icon{
+            width: 200px;
+            height: 200px;
+        }
+        .gh-icon{
+            fill: $light;
+        }
+    }
+}
+
+
+  
