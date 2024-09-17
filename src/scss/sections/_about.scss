@@ -1,0 +1,33 @@
+#about {
+    padding: 2rem 0; // Padding for the section top and bottom
+    .row {
+        margin-bottom: 2rem; // Space between rows if needed
+    }
+
+    h4 {
+        font-weight: 600; // Adjust weight to make headings stand out
+        margin-bottom: 1rem; // Add space below the headers
+    }
+
+    p.lead {
+        margin-bottom: 2rem; // Space between paragraphs
+        font-size: 1.1rem; // Slightly larger text for better readability
+        line-height: 1.6;
+    }
+
+    img {
+        border-radius: 10px; // Softens the image with rounded corners
+        max-width: 100%; // Makes sure image scales well in smaller screens
+    }
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+        flex-direction: column; // Stack the image and text for smaller screens
+    }
+}
+

@@ -1,0 +1,36 @@
+// 
+// Footer
+// 
+
+.footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: $secondary;
+    color: $white;
+
+    .buy-coffee-btn{
+        display: inline-block;
+        background-color: #ffffff; // Yellow background like in the image
+        border-radius: 15px; // Rounded corners
+        padding: 10px 20px; // Padding for spacing
+        text-align: center;
+        transition: background-color 0.3s ease; // Smooth hover transition
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Add subtle shadow
+        text-decoration: none;
+    
+        img {
+            display: inline-block;
+            max-width: 200px; // Adjust this to the size of your image
+            height: auto;
+        }
+    
+        &:hover {
+            background-color: #b1b1b1; // Slightly darker yellow on hover
+            cursor: pointer;
+        }
+    }
+}
+
+.copyright {
+    background-color: darken($secondary, 10%);
+}
