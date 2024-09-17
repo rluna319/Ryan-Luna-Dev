@@ -1,4 +1,4 @@
-// JavaScript to handle form validation for radio button
+// JavaScript to handle form validation for radio button and changing the subject field based on the recruiter selection
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', function(event) {

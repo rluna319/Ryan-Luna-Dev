@@ -211,6 +211,12 @@ html(lang='en')
                     .divider-custom-line
                     .divider-custom-icon
                         i.fas.fa-angle-right
+
+                // Form broken notification
+                h4.notification.text-center.text-secondary.mb-0
+                    | Sorry! This form is currently broken. Please reach out to me via Linkedin or Github. Thank you!
+                    
+
                 // Contact Section Form
                 .row.justify-content-center
                     .col-lg-8.col-xl-7
@@ -348,3 +354,6 @@ html(lang='en')
 
         // Form validation
         script(src='js/form-validation.js')
+
+        // Formspree submission counter (polls Google Sheets)
+        script(src='/js/google-sheets-polling.js')

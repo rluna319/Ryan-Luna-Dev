@@ -49,6 +49,7 @@
     "dependencies": {
         "bootstrap": "5.2.3",
         "devicon": "^2.16.0",
+        "googleapis": "^144.0.0",
         "tech-stack-icons": "^2.1.0"
     },
     "devDependencies": {
