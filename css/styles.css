@@ -10897,10 +10897,12 @@ html {
   color: #fff;
   margin-right: auto;
 }
+#mainNav .navbar-brand #console-logo {
+  position: relative;
+}
 #mainNav .navbar-brand #console-logo #logo-show-cursor, #mainNav .navbar-brand #console-logo #logo-hide-cursor {
   width: 40px;
   height: 40px;
-  position: absolute;
 }
 #mainNav .navbar-brand #console-logo #logo-show-cursor {
   animation: showCursor 1.5s steps(1) infinite;
@@ -10914,17 +10916,21 @@ html {
 }
 @keyframes showCursor {
   0%, 50% {
+    display: none;
     opacity: 0%;
   }
   50.1%, 100% {
+    display: inline;
     opacity: 100%;
   }
 }
 @keyframes hideCursor {
   0%, 50% {
+    display: inline;
     opacity: 100%;
   }
   50.1%, 100% {
+    display: none;
     opacity: 0%;
   }
 }
