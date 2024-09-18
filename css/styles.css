@@ -10900,6 +10900,7 @@ html {
 #mainNav .navbar-brand #console-logo #logo-show-cursor, #mainNav .navbar-brand #console-logo #logo-hide-cursor {
   width: 40px;
   height: 40px;
+  position: absolute;
 }
 #mainNav .navbar-brand #console-logo #logo-show-cursor {
   animation: showCursor 1.5s steps(1) infinite;
