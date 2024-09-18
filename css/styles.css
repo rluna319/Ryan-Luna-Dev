@@ -10897,6 +10897,28 @@ html {
   color: #fff;
   margin-right: auto;
 }
+#mainNav .navbar-brand #console-logo #logo-show-cursor {
+  animation: showCursor 1s steps(1) infinite;
+}
+#mainNav .navbar-brand #console-logo #logo-hide-cursor {
+  animation: hideCursor 1s steps(1) infinite;
+}
+@keyframes showCursor {
+  0%, 50% {
+    display: none;
+  }
+  50.1%, 100% {
+    display: inline;
+  }
+}
+@keyframes hideCursor {
+  0%, 50% {
+    display: inline;
+  }
+  50.1%, 100% {
+    display: none;
+  }
+}
 #mainNav .navbar-nav {
   margin-top: 1rem;
   margin-left: auto;
@@ -10999,7 +11021,6 @@ html {
   }
 }
 .portfolio {
-  background-color: #f8f9fa;
   padding: 100px 0;
 }
 
