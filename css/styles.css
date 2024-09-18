@@ -11093,19 +11093,20 @@ html {
   scroll-behavior: smooth;
 }
 #skills .skills-container::-webkit-scrollbar {
-  height: 6px;
+  height: 8px;
 }
 #skills .skills-container::-webkit-scrollbar-thumb {
-  background-color: #1C1C21;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 }
-#skills .skills-container a {
-  display: inline-block;
-  flex: 0 0 auto;
+#skills .skills-container::-webkit-scrollbar-track {
+  background-color: #212529;
+  border-radius: 10px;
 }
 #skills .skills-container .skill-icon {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: auto;
+  flex: 0 0 auto;
 }
 #skills .skills-container .gh-icon {
   fill: #f8f9fa;
