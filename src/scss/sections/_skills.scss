@@ -28,5 +28,13 @@
         .gh-icon {
             fill: $light;
         }
+
+        // Make sure scrolling works smoothly on small screens
+        @media (max-width: 768px) {
+            .skills-container {
+                overflow-x: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
     }
 }

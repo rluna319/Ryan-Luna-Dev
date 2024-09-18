@@ -11111,3 +11111,9 @@ html {
 #skills .skills-container .gh-icon {
   fill: #f8f9fa;
 }
+@media (max-width: 768px) {
+  #skills .skills-container .skills-container {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
