@@ -10899,9 +10899,11 @@ html {
 }
 #mainNav .navbar-brand #console-logo #logo-show-cursor {
   animation: showCursor 1.5s steps(1) infinite;
+  -webkit-animation: showCursor 1.5s steps(1) infinite;
 }
 #mainNav .navbar-brand #console-logo #logo-hide-cursor {
   animation: hideCursor 1.5s steps(1) infinite;
+  -webkit-animation: hideCursor 1.5s steps(1) infinite;
 }
 @keyframes showCursor {
   0%, 50% {
