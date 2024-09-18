@@ -10898,10 +10898,10 @@ html {
   margin-right: auto;
 }
 #mainNav .navbar-brand #console-logo #logo-show-cursor {
-  animation: showCursor 1s steps(1) infinite;
+  animation: showCursor 1.5s steps(1) infinite;
 }
 #mainNav .navbar-brand #console-logo #logo-hide-cursor {
-  animation: hideCursor 1s steps(1) infinite;
+  animation: hideCursor 1.5s steps(1) infinite;
 }
 @keyframes showCursor {
   0%, 50% {
