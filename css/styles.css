@@ -10901,11 +10901,13 @@ html {
   animation: showCursor 1.5s steps(1) infinite;
   -webkit-animation: showCursor 1.5s steps(1) infinite;
   will-change: display;
+  transform: translateZ(0);
 }
 #mainNav .navbar-brand #console-logo #logo-hide-cursor {
   animation: hideCursor 1.5s steps(1) infinite;
   -webkit-animation: hideCursor 1.5s steps(1) infinite;
   will-change: display;
+  transform: translateZ(0);
 }
 @keyframes showCursor {
   0%, 50% {
