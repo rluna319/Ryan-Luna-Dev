@@ -75,5 +75,13 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+    // Force scroll position on Page Load:
+    const skillsContainer = document.getElementById('skills-container');
+    if (skillsContainer){
+        skillsContainer.scrollLeft = 0;     // reset to 0
+    } else {
+        console.log('Skills container not found');
+    }
+
 
 });
