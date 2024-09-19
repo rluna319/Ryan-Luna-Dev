@@ -16,63 +16,11 @@
         #console-logo{
             position: relative;
 
-            #logo-show-cursor, #logo-hide-cursor{
+            #logo-show-cursor{
                 width: 40px;
                 height: 40px;
             }
-
-            #logo-show-cursor{
-                -webkit-animation: showCursor 1.5s steps(1) infinite;
-                animation: showCursor 1.5s steps(1) infinite;
-                will-change: display;
-                transform: translateZ(0);
-            }
-
-            #logo-hide-cursor{
-                -webkit-animation: hideCursor 1.5s steps(1) infinite;
-                animation: hideCursor 1.5s steps(1) infinite;
-                will-change: display;
-                transform: translateZ(0);
-            }
-            
-            @keyframes showCursor{
-                0%, 50% {
-                    display: none;
-                }
-                50.1%, 100% {
-                    display: inline;
-                }
-            }
-
-            @-webkit-keyframes showCursor{
-                0%, 50% {
-                    display: none;
-                }
-                50.1%, 100% {
-                    display: inline;
-                }
-            }
-
-            @keyframes hideCursor{
-                0%, 50% {
-                    display: inline;
-                }
-                50.1%, 100% {
-                    display: none;
-                }
-            }
-
-            @-webkit-keyframes hideCursor{
-                0%, 50% {
-                    display: inline;
-                }
-                50.1%, 100% {
-                    display: none;
-                }
-            }
-
-        }
-        
+        }        
     }
 
     .navbar-nav {
