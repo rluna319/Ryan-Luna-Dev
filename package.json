@@ -11,7 +11,9 @@
         "clean": "node scripts/clean.js",
         "start": "npm run build && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js",
-        "deploy": "gh-pages -d dist"
+        "cleanup-deployments": "node scripts/cleanup-deployments.js",
+        "echo-version": "echo v${npm_package_version}",
+        "deploy": "npm run build && gh-pages -d dist -m 'v${npm_package_version}' && npm run cleanup-deployments"
     },
     "description": "My personal developer portfolio and tech hub.",
     "keywords": [
