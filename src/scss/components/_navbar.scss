@@ -23,33 +23,64 @@
         }        
     }
 
-    .navbar-nav {
-        margin-top: 1rem;
-        margin-left: auto; // push to the right
+    // .navbar-nav {
+    //     margin-top: 1rem;
+    //     margin-left: auto; // push to the right
 
+    //     li.nav-item {
+    //         a.nav-link {
+    //             color: $white;
+
+    //             &:hover {
+    //                 color: $primary;
+    //             }
+
+    //             &:active,
+    //             &:focus {
+    //                 color: $white;
+    //             }
+
+    //             &.active {
+    //                 color: $primary;
+    //             }
+    //         }
+    //     }
+    // }
+
+    .navbar-nav {
         li.nav-item {
             a.nav-link {
-                color: $white;
+                color: $white; // default link color
 
                 &:hover {
-                    color: $primary;
-                }
-
-                &:active,
-                &:focus {
-                    color: $white;
+                    color: $light-gray; // color on hover
                 }
 
                 &.active {
-                    color: $primary;
+                    color: $primary; // active link color
+                    background-color: $secondary; // background highlight when active
+
+                    &:hover {
+                        color: $white; // hover color on active link
+                    }
                 }
             }
         }
     }
-}
 
-@include media-breakpoint-up(lg) {
-    #mainNav {
+    // Styles for the collapsed menu (hamburger menu)
+    .navbar-collapse.show {
+        li.nav-item {
+            a.nav-link {
+                &.active {
+                    color: $white; // active link text color
+                    background-color: $primary; // active background color in collapsed menu
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
         transition: padding-top 0.3s, padding-bottom 0.3s;
@@ -61,27 +92,28 @@
 
         .navbar-nav {
             margin-top: 0;
+
+            li.nav-item {
+                a.nav-link.active {
+                    background-color: $primary; // background highlight for active links
+                    color: $white; // text color for active links
+
+                    &:hover {
+                        background-color: $primary; // maintain hover effect
+                        color: $white;
+                    }
+                }
+            }
         }
 
-        .navbar-nav>li.nav-item>a.nav-link.active {
-            color: $white;
-            background: $primary;
+        #mainNav.navbar-shrink {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
 
-            &:active,
-            &:focus,
-            &:hover {
-                color: $white;
-                background: $primary;
+            .navbar-brand {
+                font-size: 1.5em;
             }
         }
     }
-
-    #mainNav.navbar-shrink {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-
-        .navbar-brand {
-            font-size: 1.5em;
-        }
-    }
 }
+
