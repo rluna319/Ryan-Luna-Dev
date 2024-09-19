@@ -1,6 +1,6 @@
 {
     "title": "Ryan Luna | Developer Hub",
-    "name": "my-portfolio",
+    "name": "developer-portfolio",
     "version": "1.0.0",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
@@ -36,16 +36,16 @@
         "argos",
         "ARGoS"
     ],
-    "homepage": "https://my-portfolio.com",
+    "homepage": "https://rluna319.github.io/Developer-Portfolio/",
     "bugs": {
-        "url": "https://github.com/rluna319/My-Developer-Portfolio/issues",
+        "url": "https://github.com/rluna319/Developer-Portfolio/issues",
         "email": "ryanluna319@gmail.com"
     },
     "license": "MIT",
     "author": "Ryan Luna",
     "repository": {
         "type": "git",
-        "url": "https://github.com/rluna319/My-Developer-Portfolio"
+        "url": "https://github.com/rluna319/Developer-Portfolio"
     },
     "dependencies": {
         "bootstrap": "5.2.3",

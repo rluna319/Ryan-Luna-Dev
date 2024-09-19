@@ -4,12 +4,16 @@ This is the repository for my personal developer portfolio.
 
 This portfolio is designed to serve as a central hub for my professional work, highlighting both my acadmic research and personal projects. Build with modern web development tools, the website offers a clean and resonsive design to ensure optimal performance and accessibility across devices.
 
-### License
+## License
 
-This project is not licensed for public use or distribution. All rights reserved. You may view and access the source code for personal use, but reuse, modification, and distribution of the code, content, or assets are prohibited without explicit permission from the author.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
 
-&copy; 2024 Ryan Luna. All rights reserved.
+### Important Notes:
 
-### Contact
+- **Code Reuse:** You are free to use, modify, and distribute the code as per the terms of the MIT License.
+- **Personal Information:** Please note that while the code is open under the MIT License, personal information and content on the website (such as text, images, and branding) are not to be reused without explicit permission.
 
-For inquiries or collaborations, please reach out to me through my [contact form]() on my website or connect with me via [LinkedIn](https://www.linkedin.com/in/ryan-luna-03018180/).
+
+## Contact
+
+For inquiries or collaborations, connect with me via [LinkedIn](https://www.linkedin.com/in/ryan-luna-03018180/).
