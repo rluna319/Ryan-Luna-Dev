@@ -10904,38 +10904,38 @@ html {
   width: 40px;
   height: 40px;
 }
-#mainNav .navbar-brand #console-logo #logo-show-cursor {
-  animation: showCursor 1.5s steps(1) infinite;
-  will-change: display;
-  transform: translateZ(0);
-}
-#mainNav .navbar-brand #console-logo #logo-hide-cursor {
-  animation: hideCursor 1.5s steps(1) infinite;
-  will-change: display;
-  transform: translateZ(0);
-}
-@keyframes showCursor {
-  0%, 50% {
-    display: none;
-    opacity: 0%;
-    z-index: -1;
+@supports (animation: hideCursor 1.5s steps(1) infinite) {
+  #mainNav .navbar-brand #console-logo #logo-show-cursor {
+    animation: showCursor 1.5s steps(1) infinite;
+    will-change: display;
   }
-  50.1%, 100% {
+  #mainNav .navbar-brand #console-logo #logo-hide-cursor {
+    animation: hideCursor 1.5s steps(1) infinite;
+    will-change: display;
+  }
+  @keyframes showCursor {
+    0%, 50% {
+      display: none;
+    }
+    50.1%, 100% {
+      display: inline;
+    }
+  }
+  @keyframes hideCursor {
+    0%, 50% {
+      display: inline;
+    }
+    50.1%, 100% {
+      display: none;
+    }
+  }
+}
+@supports not (animation: hideCursor 1.5s steps(1) infinite) {
+  #mainNav .navbar-brand #console-logo #logo-show-cursor {
     display: inline;
-    opacity: 100%;
-    z-index: 1;
   }
-}
-@keyframes hideCursor {
-  0%, 50% {
-    display: inline;
-    opacity: 100%;
-    z-index: 1;
-  }
-  50.1%, 100% {
+  #mainNav .navbar-brand #console-logo #logo-hide-cursor {
     display: none;
-    opacity: 0%;
-    z-index: -1;
   }
 }
 #mainNav .navbar-nav {
