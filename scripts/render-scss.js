@@ -34,9 +34,10 @@ module.exports = function renderSCSS() {
 };
 
 const entryPoint = `/*!
-* Start Bootstrap - ${packageJSON.title} v${packageJSON.version} (${packageJSON.homepage})
+* ${packageJSON.title} v${packageJSON.version} (${packageJSON.homepage})
+* Based on Start Bootstrap
 * Copyright 2013-${new Date().getFullYear()} ${packageJSON.author}
-* Licensed under ${packageJSON.license} (https://github.com/StartBootstrap/${packageJSON.name}/blob/master/LICENSE)
+* Licensed under ${packageJSON.license} (see LICENSE file in the project root for more information)
 */
 @import "${stylesPath}"
 `

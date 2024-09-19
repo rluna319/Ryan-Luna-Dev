@@ -1,31 +1,40 @@
-#skills{
+#skills {
     .skills-container {
         display: flex;
-        gap: 15px; // Add spacing between the icons
+        gap: 15px;
         overflow-x: auto;
         padding: 10px;
-        scroll-behavior: smooth; // Smooth scrolling
+        scroll-behavior: smooth;
+
+        // Custom Scrollbar
         &::-webkit-scrollbar {
-            height: 6px; // Small scrollbar height
+            height: 8px; // Increase scrollbar height for visibility
         }
         &::-webkit-scrollbar-thumb {
-            background-color: $primary; // Change scrollbar thumb color
+            background-color: rgba(255, 255, 255, 0.1); // Thumb color
             border-radius: 10px;
         }
-        a {
-            display: inline-block;
-            flex: 0 0 auto; // Ensures all icons stay in the row
+        &::-webkit-scrollbar-track {
+            background-color: $dark; // Track color
+            border-radius: 10px;
         }
-        
-        .skill-icon{
-            width: 200px;
-            height: 200px;
+
+        .skill-icon {
+            width: 100px;
+            height: auto;
+            flex: 0 0 auto;
         }
-        .gh-icon{
+
+        .gh-icon {
             fill: $light;
+        }
+
+        // Make sure scrolling works smoothly on small screens
+        @media (max-width: 768px) {
+            .skills-container {
+                overflow-x: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
         }
     }
 }
-
-
-  
