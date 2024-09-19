@@ -1,5 +1,5 @@
 //
-// Scripts
+// JS for the navbar
 // 
 
 window.addEventListener('DOMContentLoaded', event => {
@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', event => {
     navbarShrink();
 
     // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
 
     // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
@@ -45,38 +44,5 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
-
-    // Show/hide company field based on recruiter selection
-    const recruiterYes = document.getElementById('recruiter-yes');
-    const recruiterNo = document.getElementById('recruiter-no');
-    const companyField = document.getElementById('companyField');
-    const companyInput = document.getElementById('company');
-
-    if (recruiterYes && recruiterNo && companyField && companyInput) {
-        recruiterYes.addEventListener('change', function() {
-            if (recruiterYes.checked) {
-                companyField.classList.add('show');
-                companyField.setAttribute('aria-hidden', 'false');
-                companyInput.removeAttribute('disabled');
-            }
-        });
-
-        recruiterNo.addEventListener('change', function() {
-            if (recruiterNo.checked) {
-                companyField.classList.remove('show');
-                companyField.setAttribute('aria-hidden', 'true');
-                companyInput.setAttribute('disabled', 'disabled');
-            }
-        });
-    }
-
-    // Force scroll position on Page Load:
-    const skillsContainer = document.getElementById('skills-container');
-    if (skillsContainer){
-        skillsContainer.scrollLeft = 0;     // reset to 0
-    } else {
-        console.log('Skills container not found');
-    }
-
 
 });
