@@ -1,7 +1,7 @@
 {
     "title": "Ryan Luna | Developer Hub",
     "name": "developer-portfolio",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
         "build:assets": "node scripts/build-assets.js",
@@ -11,7 +11,9 @@
         "clean": "node scripts/clean.js",
         "start": "npm run build && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js",
-        "deploy": "gh-pages -d dist"
+        "cleanup-deployments": "node scripts/cleanup-deployments.mjs",
+        "echo-version": "echo v${npm_package_version}",
+        "deploy": "npm run build && gh-pages -d dist -m 'v${npm_package_version}'"
     },
     "description": "My personal developer portfolio and tech hub.",
     "keywords": [
@@ -48,6 +50,7 @@
         "url": "https://github.com/rluna319/Developer-Portfolio"
     },
     "dependencies": {
+        "@octokit/core": "^6.1.2",
         "bootstrap": "5.2.3",
         "devicon": "^2.16.0",
         "googleapis": "^144.0.0",
