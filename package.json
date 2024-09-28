@@ -38,16 +38,16 @@
         "argos",
         "ARGoS"
     ],
-    "homepage": "https://rluna319.github.io/Developer-Portfolio/",
+    "homepage": "https://rluna319.github.io/Ryan-Luna-Dev/",
     "bugs": {
-        "url": "https://github.com/rluna319/Developer-Portfolio/issues",
+        "url": "https://github.com/rluna319/Ryan-Luna-Dev/issues",
         "email": "ryanluna319@gmail.com"
     },
     "license": "MIT",
     "author": "Ryan Luna",
     "repository": {
         "type": "git",
-        "url": "https://github.com/rluna319/Developer-Portfolio"
+        "url": "https://github.com/rluna319/Ryan-Luna-Dev"
     },
     "dependencies": {
         "@octokit/core": "^6.1.2",
