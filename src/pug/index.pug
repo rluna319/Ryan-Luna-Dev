@@ -32,6 +32,371 @@ html(lang='en')
             .container-fluid.d-flex.justify-content-between
                 // Brand aligned to the left
                 a.navbar-brand.ms-lg-3(href='#page-top') 
+                    // My console logo
+                    div#console-logo
+                        //- img#logo-hide-cursor(src='assets/logo/logo2B-white_no-cursor.svg', alt='Logo 2B (white)')
+                        img#logo-show-cursor(src='assets/logo/logo2A-white_cursor.svg', alt='Logo 2A (white)')
+                        | Ryan Luna
+                // Toggler for small screens
+                button.navbar-toggler.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    i.fas.fa-bars
+                // Navbar links - Navigation items aligned to the right
+                #navbarResponsive.collapse.navbar-collapse.justify-content-end
+                    ul.navbar-nav.ms-auto.me-lg-3
+                        li.nav-item.mx-0.mx-lg-1
+                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#projects') Projects
+                        li.nav-item.mx-0.mx-lg-1
+                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#publications') Publications
+                        li.nav-item.mx-0.mx-lg-1
+                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#about') About
+                        li.nav-item.mx-0.mx-lg-1 
+                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#skills') Skills
+                        li.nav-item.mx-0.mx-lg-1
+                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#contact') Contact
+
+        // Masthead
+        header.masthead.bg-primary.text-white.text-center
+            .container.d-flex.align-items-center.flex-column
+                // Masthead Avatar Image
+                img.masthead-avatar.mb-5(src='assets/img/me/headshot_pro.jpg', alt='...')
+                // Masthead Heading
+                h1.masthead-heading.mb-0 Hey, I'm Ryan.
+                h1.masthead-heading.mb-0.mt-3 Welcome to my developer hub!
+                // Masthead Subheading
+                p.masthead-subheading.font-weight-light.mb-0.mt-5 Embedded Systems - Swarm Robotics - Software Engineer
+
+        // Projects Section
+        section#projects.page-section.portfolio
+            .container
+                // Projects Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Recent Projects
+                // Icon Divider
+                .divider-custom 
+                    .divider-custom-line     
+                // Projects List
+                .row.justify-content-center
+                    .col-lg-8
+                        ul.list-unstyled
+                            li.mb-4
+                                h4.text-secondary Hydrodynamics-Based Flocking and Obstacle Avoidance for Robot Swarms
+                                p May 2024 - Present
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Hydroflock', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms
+                                p Aug 2023 - May 2024
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Foraging_Swarm_Defense', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
+                                p Jan 2023 - Jun 2023
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Adaptive-Multiple-Distributed-Spiral-Search-Algorithm', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms
+                                p Aug 2022 - May 2023
+                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/CPFA_DoS', target='_blank') Check it out!
+                            //- li.mb-4
+                            //-     h4.text-secondary RTEC (Rapid Transport Environmental Chamber)
+                            //-     p Feb 2018 - Dec 2019
+                            //- li.mb-4
+                            //-     h4.text-secondary Object Detection Application for Android
+                            //-     p Jan 2019 - Jun 2019
+
+        // Research Publications Section
+        section#publications.page-section.publications
+            .container
+                // Research Publications Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Research Publications
+                // Icon Divider
+                .divider-custom     
+                    .divider-custom-line
+                // Publications List
+                .row.justify-content-center
+                    .col-lg-8
+                        ul.list-unstyled
+                            li.mb-4
+                                h4.text-secondary Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms
+                                p IEEE · Jun 24, 2024
+                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/10597515/', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms
+                                p IEEE · Apr 19, 2024
+                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/10585509/', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
+                                p IEEE · Jun 6, 2023
+                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/10229868', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Reliability and Security of Extreme Parallelism
+                                p IEEE · Oct 19, 2021
+                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/9580723', target='_blank') Check it out!
+                            li.mb-4
+                                h4.text-secondary Security and Reliability of Safety-Critical RTOS
+                                p Springer Nature · Jun 25, 2021
+                                a.btn.btn-primary(href='https://rdcu.be/cneJY', target='_blank') Check it out!
+
+        // About Section
+        section#about.page-section.bg-primary.text-white.mb-0
+            .container
+                // About Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-white About
+                // Icon Divider
+                .divider-custom.divider-white                        
+                    .divider-custom-line                        
+                // About Section Content
+                .row.align-items-center
+                    .col-lg-5.me-auto
+                        img.img-fluid.mb-4(src='assets/img/me/conference-presentation-photo.jpg', alt='Your Photo')
+                    .col-lg-7.ms-auto.text-start
+                        p.lead
+                            | I’m Ryan Luna, a software engineer and researcher with a passion for embedded systems, robotics, and hardware security. During my undergrad, as co-captain and payload lead for UTRGV’s Rocket Launchers, I worked on avionics, sensors, and Arduino systems for high-powered rockets. This hands-on experience with embedded systems fueled my interest in the field, ultimately shaping my academic and research focus.
+                        p.lead 
+                            | During my graduate studies, I initially focused on hardware security, where I explored RTOS and RISC-V using the ChipWhisperer toolchain. Later, I pivoted to swarm robotics, centering my research on swarm security, algorithm development, and vulnerability mitigation through the ARGoS platform. Over the course of my graduate career, I published five research papers, primarily on swarm intelligence and security.
+                        p.lead 
+                            | I thrive on solving complex problems through innovation and collaboration, with a strong focus on embedded systems and software development. I’m always seeking opportunities to expand my skills, contribute to open-source projects, and tackle meaningful challenges.
+        // Approach Section
+        section#about.page-section.bg-primary.text-white.mb-0
+            .container
+                // Approach Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-white My Approach
+                // Icon Divider
+                .divider-custom.divider-white
+                     
+                        
+                    .divider-custom-line
+                    
+                        
+                // Approach Section Content
+                h4 Innovation
+                p.lead
+                    | Through my research and project work, I consistently strive for creative solutions to technical challenges. I find new ways to address complex problems, leveraging both theory and practical application.
+                h4 Dedication
+                p.lead
+                    | My academic journey is marked by a strong commitment to learning and growth. Along the way, I've taken on challenging projects, earned recognition for my work, and continued to push myself through post-graduate research, and hands-on projects.
+                h4 Adaptation
+                p.lead
+                    | With proficiency in C, C++, and Python, I focus on analyzing and refining complex systems. My research and software development experience reflect my ability to adapt to new challenges and enhance technological solutions, making me versatile across the software development stack.
+
+
+
+        // Skills and Technologies Section
+        include includes/icons.pug
+        section#skills.page-section.bg-primary.text-white.mb-0
+            .container
+                // Skills Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-white Skills and Technologies
+                // Icon Divider
+                .divider-custom.divider-white                     
+                    .divider-custom-line                    
+                // Horizontal scrolling container
+                .skills-container(style="display: flex; overflow-x: auto; padding: 10px;")
+                    // languages
+                    +pythonIcon('skill-icon')
+                    +cIcon('skill-icon')
+                    +cppIcon('skill-icon')
+
+                    // tools and framworks
+                    +vscodeIcon('skill-icon')
+                    +arduinoIcon('skill-icon')
+                    +linuxColorIcon('skill-icon')
+                    +gitIcon('skill-icon')
+                    +githubIcon('skill-icon gh-icon')
+                    +dockerIcon('skill-icon')
+
+                    // less proficient languages
+                    +html5Icon('skill-icon')
+                    +css3Icon('skill-icon')
+
+        // Contact Section
+        section#contact.page-section
+            .container
+                // Contact Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contact Me
+                // Icon Divider
+                .divider-custom
+                    .divider-custom-line                        
+                // Form broken notification
+                h4.notification.text-center.text-secondary.mb-0
+                    | Sorry! This form is currently broken. Please reach out to me via Linkedin or Github. Thank you!
+                    
+
+                // Contact Section Form
+                .row.justify-content-center
+                    .col-lg-8.col-xl-7
+                        form#contactForm(action="https://formspree.io/f/xvgpndkb", method="POST", novalidate)
+                            // Name input
+                            .form-floating.mb-3
+                                input#name.form-control(
+                                    type='text',
+                                    placeholder='Enter your name...',
+                                    required
+                                    autocomplete='name'
+                                )
+                                label(for='name') Full name
+                                .invalid-feedback
+                                    | A name is required.
+
+                            // Email address input
+                            .form-floating.mb-3
+                                input#email.form-control(
+                                    type='email',
+                                    placeholder='name@example.com',
+                                    required
+                                    autocomplete='email'
+                                )
+                                label(for='email') Email address
+                                .invalid-feedback
+                                    | A valid email is required.
+
+                            // Phone number input (optional)
+                            .form-floating.mb-3
+                                input#phone.form-control(
+                                    type='tel',
+                                    placeholder='(123) 456-7890',
+                                    autocomplete='tel'
+                                )
+                                label(for='phone') Phone number (optional)
+
+                            // Message input
+                            .form-floating.mb-3
+                                textarea#message.form-control(
+                                    placeholder='Enter your message here...',
+                                    style='height: 10rem;',
+                                    required
+                                    autocomplete='off'
+                                )
+                                label(for='message') Message
+                                .invalid-feedback
+                                    | A message is required.
+
+                            // Recruiter question
+                            .form-floating.mb-3
+                                .d-flex.align-items-center
+                                    label.form-label.me-3(for='recruiter-yes') Are you a recruiter?
+                                    .form-check.form-check-inline
+                                        input.form-check-input#recruiter-yes(
+                                            type='radio',
+                                            name='recruiter',
+                                            value='yes',
+                                            required
+                                        )
+                                        label.form-check-label(for='recruiter-yes') Yes
+                                    .form-check.form-check-inline
+                                        input.form-check-input#recruiter-no(
+                                            type='radio',
+                                            name='recruiter',
+                                            value='no',
+                                            checked,
+                                            required
+                                        )
+                                        label.form-check-label(for='recruiter-no') No
+                                // Company field, visible when 'Yes' is selected
+                                .collapse#companyField(aria-hidden='true')
+                                    .form-floating.mb-3
+                                        input#company.form-control(
+                                            type='text',
+                                            placeholder='Enter your company...',
+                                            required,
+                                            disabled,
+                                            autocomplete='organization'
+                                        )
+                                        label(for='company') Company or Business Name
+                                        .invalid-feedback
+                                            | A company or business name is required.
+                            
+                            // Hidden Subject
+                            input#subject.form-control(
+                                type='hidden',
+                                name='_subject',
+                                value='[Formspree] Form Submission'
+                            )
+
+                            // Submit Button
+                            button#submitButton.btn.btn-primary.btn-xl(type='submit') Send
+
+        // Footer
+        footer.footer.text-center
+            .container
+                .row
+                    // Footer Location
+                    .col-lg-4.mb-5.mb-lg-0
+                        h4.text-uppercase.mb-4 Location
+                        p.lead.mb-0
+                            | McAllen, TX, USA
+                    // Footer Social Icons
+                    .col-lg-4.mb-5.mb-lg-0
+                        h4.text-uppercase.mb-4 Around the Web
+                        a.btn.btn-outline-light.btn-social.mx-1(href='#!', aria-label="Github")
+                            i.fab.fa-fw.fa-github
+                        a.btn.btn-outline-light.btn-social.mx-1(href='#!', aria-label="LinkedIn")
+                            i.fab.fa-fw.fa-linkedin-in
+                    // Buy me a coffee button (custom)
+                    .col-lg-4.mb-5.mb-lg-0
+                        a.buy-coffee-btn(href='https://www.buymeacoffee.com/ryanluna319', target='_blank')
+                            img(src='assets/bmc/bmc-full-logo-no-background.png', alt='Buy Me a Coffee Logo', class='custom-button-img')
+                    
+        // BMC-Button (generated)
+        //- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="ryanluna319" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        
+        // Buy me a coffee widget
+        //- <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="ryanluna319" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+        // Copyright Section
+        div.copyright.py-4.text-center.text-white
+            .container
+                small Copyright &copy; 2024 Ryan Luna.
+                br
+                | The template and design of this website are licensed under the MIT License.
+                br
+                | Personal information such as name, images, and other identifying details are not for reuse or distribution without explicit permission.
+
+
+        // Portfolio Modals
+        //- include includes/portfolio-modal-template.pug
+
+        // Bootstrap core JS
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+
+        // Navbar JS
+        script(src='js/navbar.js')
+
+        // Form JS
+        script(src='js/form.js')
+
+        // Skills JS
+        script(src='js/skills.js')
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title Ryan Luna - Portfolio
+
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='assets/logo/logo2A-white_cursor.svg')
+
+        // Font Awesome icons (free version)
+        script(src='https://use.fontawesome.com/releases/v6.3.0/js/all.js', crossorigin='anonymous')
+
+        // Google fonts
+        link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+        link(href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+    body#page-top
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
+            .container-fluid.d-flex.justify-content-between
+                // Brand aligned to the left
+                a.navbar-brand.ms-lg-3(href='#page-top') 
                     // My console logo with blinking effect
                     div#console-logo
                         //- img#logo-hide-cursor(src='assets/logo/logo2B-white_no-cursor.svg', alt='Logo 2B (white)')
@@ -72,11 +437,11 @@ html(lang='en')
                 h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Recent Projects
                 // Icon Divider
                 .divider-custom
-                    .divider-custom-icon 
-                        i.fas.fa-angle-left
+                     
+                        
                     .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-angle-right
+                    
+                        
                 // Projects List
                 .row.justify-content-center
                     .col-lg-8
@@ -111,11 +476,11 @@ html(lang='en')
                 h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Research Publications
                 // Icon Divider
                 .divider-custom
-                    .divider-custom-icon 
-                        i.fas.fa-angle-left
+                     
+                        
                     .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-angle-right
+                    
+                        
                 // Publications List
                 .row.justify-content-center
                     .col-lg-8
@@ -141,7 +506,6 @@ html(lang='en')
                                 p Springer Nature · Jun 25, 2021
                                 a.btn.btn-primary(href='https://rdcu.be/cneJY', target='_blank') Check it out!
 
-
         // About Section
         section#about.page-section.bg-primary.text-white.mb-0
             .container
@@ -149,25 +513,46 @@ html(lang='en')
                 h2.page-section-heading.text-center.text-uppercase.text-white About
                 // Icon Divider
                 .divider-custom.divider-white
-                    .divider-custom-icon 
-                        i.fas.fa-angle-left
+                     
+                        
                     .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-angle-right
+                    
+                        
                 // About Section Content
                 .row.align-items-center
                     .col-lg-5.me-auto
                         img.img-fluid.mb-4(src='assets/img/me/conference-presentation-photo.jpg', alt='Your Photo')
                     .col-lg-7.ms-auto.text-start
-                        h4 Innovative
                         p.lead
-                            | As a recent graduate with a Master's in Computer Science, I have conducted research in distributed/decentralized systems and developed creative solutions across various projects. My work demonstrates my ability to tackle complex problems and innovate within diverse technological domains.
-                        h4 Driven
-                        p.lead
-                            | My academic journey is marked by a strong commitment to excellence, evidenced by graduating summa cum laude and receiving the Outstanding Student of the Year award twice. I continuously strive to expand my knowledge and skills through post-graduate research and hands-on projects.
-                        h4 Analytical
-                        p.lead
-                            | With expertise in C, C++, and Python, I excel in analyzing and improving complex systems. My research background and experience in software development demonstrate my ability to critically evaluate and enhance technological solutions, making me versatile and adaptable to roles across the software development stack.
+                            | I’m Ryan Luna, a software engineer and researcher with a passion for embedded systems, robotics, and hardware security. During my undergrad, as co-captain and payload lead for UTRGV’s Rocket Launchers, I worked on avionics, sensors, and Arduino systems for high-powered rockets. This hands-on experience with embedded systems fueled my interest in the field, ultimately shaping my academic and research focus.
+                        p.lead 
+                            | During my graduate studies, I initially focused on hardware security, where I explored RTOS and RISC-V using the ChipWhisperer toolchain. Later, I pivoted to swarm robotics, centering my research on swarm security, algorithm development, and vulnerability mitigation through the ARGoS platform. Over the course of my graduate career, I published five research papers, primarily on swarm intelligence and security.
+                        p.lead 
+                            | I thrive on solving complex problems through innovation and collaboration, with a strong focus on embedded systems and software development. I’m always seeking opportunities to expand my skills, contribute to open-source projects, and tackle meaningful challenges.
+        // Approach Section
+        section#about.page-section.bg-primary.text-white.mb-0
+            .container
+                // Approach Section Heading
+                h2.page-section-heading.text-center.text-uppercase.text-white My Approach
+                // Icon Divider
+                .divider-custom.divider-white
+                     
+                        
+                    .divider-custom-line
+                    
+                        
+                // Approach Section Content
+                h4 Innovation
+                p.lead
+                    | Through my research and project work, I consistently strive for creative solutions to technical challenges. I find new ways to address complex problems, leveraging both theory and practical application.
+                h4 Dedication
+                p.lead
+                    | My academic journey is marked by a strong commitment to learning and growth. Along the way, I've taken on challenging projects, earned recognition for my work, and continued to push myself through post-graduate research, and hands-on projects.
+                h4 Adaptation
+                p.lead
+                    | With proficiency in C, C++, and Python, I focus on analyzing and refining complex systems. My research and software development experience reflect my ability to adapt to new challenges and enhance technological solutions, making me versatile across the software development stack.
+
+
 
         // Skills and Technologies Section
         include includes/icons.pug
@@ -177,11 +562,11 @@ html(lang='en')
                 h2.page-section-heading.text-center.text-uppercase.text-white Skills and Technologies
                 // Icon Divider
                 .divider-custom.divider-white
-                    .divider-custom-icon 
-                        i.fas.fa-angle-left
+                     
+                        
                     .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-angle-right
+                    
+                        
                 // Horizontal scrolling container
                 .skills-container(style="display: flex; overflow-x: auto; padding: 10px;")
                     // languages
@@ -208,11 +593,11 @@ html(lang='en')
                 h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contact Me
                 // Icon Divider
                 .divider-custom
-                    .divider-custom-icon 
-                        i.fas.fa-angle-left
+                     
+                        
                     .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-angle-right
+                    
+                        
 
                 // Form broken notification
                 h4.notification.text-center.text-secondary.mb-0

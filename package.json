@@ -13,7 +13,7 @@
         "start:debug": "npm run build && node scripts/start-debug.js",
         "cleanup-deployments": "node scripts/cleanup-deployments.mjs",
         "echo-version": "echo v${npm_package_version}",
-        "deploy": "npm run build && gh-pages -d dist -m 'v${npm_package_version}'"
+        "deploy": "gh-pages -d dist -m \"v${npm_package_version}\""
     },
     "description": "My personal developer portfolio and tech hub.",
     "keywords": [
