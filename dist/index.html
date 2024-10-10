@@ -67,8 +67,13 @@
                     <div class="col-lg-8">
                         <ul class="list-unstyled">
                             <li class="mb-4">
+                                <h4 class="text-secondary">Developer Portfolio Website</h4>
+                                <p>Aug 2024 - Present</p>
+                                <a class="btn btn-primary" href="https://github.com/rluna319/Ryan-Luna-Dev" target="_blank">Check it out!</a>
+                            </li>
+                            <li class="mb-4">
                                 <h4 class="text-secondary">Hydrodynamics-Based Flocking and Obstacle Avoidance for Robot Swarms</h4>
-                                <p>May 2024 - Present</p>
+                                <p>May 2024 - Aug 2024</p>
                                 <a class="btn btn-primary" href="https://github.com/MARSLab-UTRGV/Hydroflock" target="_blank">Check it out!</a>
                             </li>
                             <li class="mb-4">
@@ -1106,31 +1111,30 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom"><div class="divider-custom-line"></div></div>
                 <!-- Form broken notification-->
-                <h4 class="notification text-center text-secondary mb-0">Sorry! This form is currently broken. Please reach out to me via Linkedin or Github. Thank you!</h4>
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
                         <form id="contactForm" action="https://formspree.io/f/xvgpndkb" method="POST" novalidate>
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." required autocomplete="name" />
+                                <input class="form-control" id="name" type="text" name="name" placeholder="Enter your name..." required autocomplete="name" />
                                 <label for="name">Full name</label>
                                 <div class="invalid-feedback">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" required autocomplete="email" />
+                                <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" required autocomplete="email" />
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback">A valid email is required.</div>
                             </div>
                             <!-- Phone number input (optional)-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" autocomplete="tel" />
+                                <input class="form-control" id="phone" type="tel" name="phone" placeholder="(123) 456-7890" autocomplete="tel" />
                                 <label for="phone">Phone number (optional)</label>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 10rem" required autocomplete="off"></textarea>
+                                <textarea class="form-control" id="message" placeholder="Enter your message here..." name="message" style="height: 10rem" required autocomplete="off"></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback">A message is required.</div>
                             </div>
@@ -1157,7 +1161,7 @@
                                 </div>
                             </div>
                             <!-- Hidden Subject-->
-                            <input class="form-control" id="subject" type="hidden" name="_subject" value="[Formspree] Form Submission" />
+                            <input class="form-control" id="subject" type="hidden" name="subject" value="[Formspree] Form Submission" />
                             <!-- Submit Button-->
                             <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
                         </form>
