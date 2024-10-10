@@ -230,6 +230,7 @@ html(lang='en')
                             .form-floating.mb-3
                                 input#name.form-control(
                                     type='text',
+                                    name='name',
                                     placeholder='Enter your name...',
                                     required
                                     autocomplete='name'
@@ -242,6 +243,7 @@ html(lang='en')
                             .form-floating.mb-3
                                 input#email.form-control(
                                     type='email',
+                                    name='email',
                                     placeholder='name@example.com',
                                     required
                                     autocomplete='email'
@@ -254,6 +256,7 @@ html(lang='en')
                             .form-floating.mb-3
                                 input#phone.form-control(
                                     type='tel',
+                                    name='phone',
                                     placeholder='(123) 456-7890',
                                     autocomplete='tel'
                                 )
@@ -263,6 +266,7 @@ html(lang='en')
                             .form-floating.mb-3
                                 textarea#message.form-control(
                                     placeholder='Enter your message here...',
+                                    name='message',
                                     style='height: 10rem;',
                                     required
                                     autocomplete='off'
@@ -309,7 +313,7 @@ html(lang='en')
                             // Hidden Subject
                             input#subject.form-control(
                                 type='hidden',
-                                name='_subject',
+                                name='subject',
                                 value='[Formspree] Form Submission'
                             )
 
