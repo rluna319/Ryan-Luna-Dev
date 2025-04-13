@@ -1,7 +1,7 @@
 /*!
 * Ryan Luna | Developer Hub v1.0.3 (https://rluna319.github.io/Ryan-Luna-Dev/)
 * Based on Start Bootstrap 
-* Copyright 2013-2024 Ryan Luna
+* Copyright 2013-2025 Ryan Luna
 * Licensed under MIT (see LICENSE file in the project root for more information)
 */
 //

@@ -1,11 +1,17 @@
 'use strict';
-const fs = require('fs');
+const fs = require('fs-extra');
 const upath = require('upath');
-const sh = require('shelljs');
 
 module.exports = function renderAssets() {
     const sourcePath = upath.resolve(upath.dirname(__filename), '../src/assets');
-    const destPath = upath.resolve(upath.dirname(__filename), '../dist/.');
+    const destPath = upath.resolve(upath.dirname(__filename), '../dist/assets');
     
-    sh.cp('-R', sourcePath, destPath)
+    // Ensure the destination directory exists and is empty
+    fs.emptyDirSync(destPath);
+    
+    // Copy all assets maintaining directory structure
+    fs.copySync(sourcePath, destPath, {
+        recursive: true,
+        overwrite: true
+    });
 };

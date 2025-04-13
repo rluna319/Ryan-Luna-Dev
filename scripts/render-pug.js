@@ -1,8 +1,7 @@
 'use strict';
-const fs = require('fs');
+const fs = require('fs-extra');
 const upath = require('upath');
 const pug = require('pug');
-const sh = require('shelljs');
 const prettier = require('prettier');
 
 module.exports = function renderPug(filePath) {
@@ -17,9 +16,7 @@ module.exports = function renderPug(filePath) {
     });
 
     const destPathDirname = upath.dirname(destPath);
-    if (!sh.test('-e', destPathDirname)) {
-        sh.mkdir('-p', destPathDirname);
-    }
+    fs.ensureDirSync(destPathDirname);
 
     const prettified = prettier.format(html, {
         printWidth: 1000,
