@@ -62,13 +62,14 @@
         "browser-sync": "^3.0.4",
         "chokidar": "3.5.3",
         "concurrently": "6.3.0",
+        "fast-glob": "^3.3.2",
+        "fs-extra": "^11.2.0",
         "gh-pages": "^6.1.1",
         "postcss": "^8.4.45",
         "postcss-cli": "^11.0.0",
         "prettier": "2.8.6",
         "pug": "^3.0.3",
         "sass": "1.60.0",
-        "shelljs": "^0.8.5",
         "upath": "2.0.1"
     },
     "browserslist": [
