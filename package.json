@@ -51,6 +51,7 @@
     },
     "dependencies": {
         "@octokit/core": "^6.1.2",
+        "@octokit/request": "9.2.3",
         "bootstrap": "5.2.3",
         "devicon": "^2.16.0",
         "googleapis": "^144.0.0",
@@ -67,7 +68,7 @@
         "prettier": "2.8.6",
         "pug": "^3.0.3",
         "sass": "1.60.0",
-        "shelljs": "0.8.5",
+        "shelljs": "^0.8.5",
         "upath": "2.0.1"
     },
     "browserslist": [
