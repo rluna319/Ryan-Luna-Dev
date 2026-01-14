@@ -182,7 +182,6 @@ html(lang='en')
 
 
         // Skills and Technologies Section
-        include includes/icons.pug
         section#skills.page-section.bg-primary.text-white.mb-0
             .container
                 // Skills Section Heading
@@ -192,22 +191,22 @@ html(lang='en')
                     .divider-custom-line                    
                 // Horizontal scrolling container
                 .skills-container(style="display: flex; overflow-x: auto; padding: 10px;")
-                    // languages
-                    +pythonIcon('skill-icon')
-                    +cIcon('skill-icon')
-                    +cppIcon('skill-icon')
+                    // Languages (Devicon)
+                    i.skill-icon.devicon-python-plain.colored(aria-label='Python', title='Python')
+                    i.skill-icon.devicon-c-plain.colored(aria-label='C', title='C')
+                    i.skill-icon.devicon-cplusplus-plain.colored(aria-label='C++', title='C++')
 
-                    // tools and framworks
-                    +vscodeIcon('skill-icon')
-                    +arduinoIcon('skill-icon')
-                    +linuxColorIcon('skill-icon')
-                    +gitIcon('skill-icon')
-                    +githubIcon('skill-icon gh-icon')
-                    +dockerIcon('skill-icon')
+                    // Tools & frameworks (Devicon)
+                    i.skill-icon.devicon-vscode-plain.colored(aria-label='VS Code', title='VS Code')
+                    i.skill-icon.devicon-arduino-plain.colored(aria-label='Arduino', title='Arduino')
+                    i.skill-icon.devicon-linux-plain.linux-icon(aria-label='Linux', title='Linux')
+                    i.skill-icon.devicon-git-plain.colored(aria-label='Git', title='Git')
+                    i.skill-icon.devicon-github-original.gh-icon(aria-label='GitHub', title='GitHub')
+                    i.skill-icon.devicon-docker-plain.colored(aria-label='Docker', title='Docker')
 
-                    // less proficient languages
-                    +html5Icon('skill-icon')
-                    +css3Icon('skill-icon')
+                    // Less proficient languages (Devicon)
+                    i.skill-icon.devicon-html5-plain.colored(aria-label='HTML5', title='HTML5')
+                    i.skill-icon.devicon-css3-plain.colored(aria-label='CSS3', title='CSS3')
 
         // Contact Section
         section#contact.page-section

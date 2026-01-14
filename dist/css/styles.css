@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*!
-* Ryan Luna | Developer Hub v1.0.3 (https://rluna319.github.io/Ryan-Luna-Dev/)
+* Ryan Luna | Developer Hub v1.1.0 (https://rluna319.github.io/Ryan-Luna-Dev/)
 * Based on Start Bootstrap
-* Copyright 2013-2025 Ryan Luna
+* Copyright 2013-2026 Ryan Luna
 * Licensed under MIT (see LICENSE file in the project root for more information)
 */
 /*!
@@ -11096,11 +11096,19 @@ html {
 }
 #skills .skills-container .skill-icon {
   width: 100px;
-  height: auto;
+  height: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5rem;
+  line-height: 1;
   flex: 0 0 auto;
 }
 #skills .skills-container .gh-icon {
-  fill: #f8f9fa;
+  color: #f8f9fa;
+}
+#skills .skills-container .linux-icon {
+  color: #f8f9fa;
 }
 @media (max-width: 768px) {
   #skills .skills-container .skills-container {
