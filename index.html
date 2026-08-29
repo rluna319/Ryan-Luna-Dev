@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="Ryan Luna — software engineer building full-stack applications with C#, .NET, SQL Server, and Azure. Background in embedded systems and swarm robotics research." />
+        <meta name="author" content="Ryan Luna" />
         <title>Ryan Luna - Portfolio</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <!-- Favicon-->
@@ -14,17 +14,22 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+        <!-- Scroll progress bar-->
+        <div id="scroll-progress"></div>
+        <!-- Cursor spotlight overlay-->
+        <div id="cursor-glow"></div>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
             <div class="container-fluid d-flex justify-content-between">
                 <!-- Brand aligned to the left--><a class="navbar-brand ms-lg-3" href="#page-top"
                     ><!-- My console logo-->
                     <div id="console-logo"><img id="logo-show-cursor" src="assets/logo/logo2A-white_cursor.svg" alt="Logo 2A (white)" />Ryan Luna</div></a
-                ><!-- Toggler for small screens--><button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button
+                ><!-- Toggler for small screens--><button class="navbar-toggler text-uppercase font-weight-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button
                 ><!-- Navbar links - Navigation items aligned to the right-->
                 <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-lg-3">
@@ -37,135 +42,188 @@
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
+        <!-- Masthead / hero-->
+        <header class="masthead">
+            <!-- Particle constellation canvas--><canvas id="hero-canvas"></canvas
+            ><!-- Drifting color glows-->
+            <div class="masthead-glow glow-1"></div>
+            <div class="masthead-glow glow-2"></div>
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/me/headshot_pro.jpg" alt="..." /><!-- Masthead Heading-->
+                <!-- Avatar with rotating gradient ring-->
+                <div class="avatar-frame"><img class="masthead-avatar" src="assets/img/me/headshot_pro.jpg" alt="Ryan Luna" /></div>
+                <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-0"><img class="wave" src="assets/icons/hand-wave.gif" alt="" aria-hidden="true" /> I'm Ryan.</h1>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0 mt-5">Software Engineer - Full-Stack Development - Embedded Systems</p>
+                <!-- Typewriter line-->
+                <p class="masthead-typewriter"><span id="typewriter"></span><span class="type-cursor" aria-hidden="true"></span></p>
+                <!-- Call-to-action buttons-->
+                <div class="masthead-cta"><a class="btn btn-primary btn-lg" href="#projects">View My Work</a><a class="btn btn-glass btn-lg" href="#contact">Get In Touch</a></div>
             </div>
+            <!-- Scroll cue--><a class="scroll-indicator" href="#about" aria-label="Scroll down to the About section"><i class="fas fa-chevron-down"></i></a>
         </header>
         <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about">
+        <section class="page-section" id="about">
             <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-white"><div class="divider-custom-line"></div></div>
+                <!-- About Section Heading--><span class="section-kicker">about</span>
+                <h2 class="page-section-heading text-center text-uppercase">About</h2>
+                <!-- Divider-->
+                <div class="divider-custom"><div class="divider-custom-line"></div></div>
                 <!-- About Section Content-->
                 <div class="row align-items-center">
-                    <div class="col-lg-5 me-auto"><img class="img-fluid mb-4" src="assets/img/me/conference-presentation-photo.jpg" alt="Your Photo" /></div>
-                    <div class="col-lg-7 ms-auto text-start">
+                    <div class="col-lg-5 me-auto reveal"><img class="about-photo img-fluid mb-4" src="assets/img/me/conference-presentation-photo.jpg" alt="Ryan presenting research at a conference" /></div>
+                    <div class="col-lg-7 ms-auto text-start reveal">
+                        <div class="about-chips">
+                            <span class="chip"><i class="fas fa-location-dot"></i> McAllen, TX</span><span class="chip"><i class="fas fa-briefcase"></i> Software Engineer @ La Joya ISD</span><span class="chip"><i class="fas fa-file-lines"></i> 5 Research Publications</span>
+                        </div>
                         <p class="lead">I'm Ryan Luna, a software engineer at La Joya ISD. I build full-stack applications, APIs, and integrations with C#, .NET, and SQL Server, hosted on Azure. Most of my work centers on database design and backend architecture — keeping systems reliable as they grow.</p>
                         <p class="lead">My background is in embedded systems and robotics. In undergrad, I was co-captain and payload lead for UTRGV's Rocket Launchers, where I worked on avionics and sensor systems for high-powered rockets. That hands-on work is what drew me into engineering.</p>
-                        <p class="lead">In grad school, I started in hardware security — working with RTOS and RISC-V — then moved into swarm robotics, where my research focused on swarm security and algorithm design. I published five papers along the way.</p>
+                        <p class="lead">In grad school, I started in hardware security — working with RTOS and RISC-V — then moved into swarm robotics, where my research focused on swarm security and algorithm design. I published five papers along the way. After finishing my master's, I contributed to Canonical's <a href="https://github.com/canonical/multipass/pull/4145" target="_blank">Multipass</a> project and spent a year teaching an intro to programming course in Python at UTRGV before stepping into my current role.</p>
                         <p class="lead">Take a look at my <a href="#projects">projects</a> and <a href="#publications">publications</a> below, and <a href="#contact">reach out</a> if you'd like to connect.</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Skills and Technologies Section-->
-        <section class="page-section bg-primary text-white mb-0" id="skills">
+        <section class="page-section" id="skills">
             <div class="container">
-                <!-- Skills Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Skills and Technologies</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-white"><div class="divider-custom-line"></div></div>
-                <!-- Auto-scrolling skills marquee-->
-                <div class="skills-marquee">
-                    <div class="skills-marquee-track">
-                        <!-- Group 1 (real content)-->
-                        <div class="skills-marquee-group">
-                            <!-- Languages (Devicon)--><i class="skill-icon devicon-csharp-plain colored" aria-label="C#" title="C#"></i><i class="skill-icon devicon-python-plain colored" aria-label="Python" title="Python"></i><i class="skill-icon devicon-c-plain colored" aria-label="C" title="C"></i><i class="skill-icon devicon-cplusplus-plain colored" aria-label="C++" title="C++"></i
-                            ><!-- Backend & Cloud (Devicon)--><i class="skill-icon devicon-dotnetcore-plain colored" aria-label=".NET" title=".NET"></i><i class="skill-icon devicon-microsoftsqlserver-plain colored" aria-label="SQL Server" title="SQL Server"></i><i class="skill-icon devicon-azure-plain colored" aria-label="Azure" title="Azure"></i
-                            ><!-- Tools & frameworks (Devicon)--><i class="skill-icon devicon-vscode-plain colored" aria-label="VS Code" title="VS Code"></i><i class="skill-icon devicon-arduino-plain colored" aria-label="Arduino" title="Arduino"></i><i class="skill-icon devicon-linux-plain linux-icon" aria-label="Linux" title="Linux"></i><i class="skill-icon devicon-git-plain colored" aria-label="Git" title="Git"></i><i class="skill-icon devicon-github-original gh-icon" aria-label="GitHub" title="GitHub"></i><i class="skill-icon devicon-docker-plain colored" aria-label="Docker" title="Docker"></i
-                            ><!-- Less proficient languages (Devicon)--><i class="skill-icon devicon-html5-plain colored" aria-label="HTML5" title="HTML5"></i><i class="skill-icon devicon-css3-plain colored" aria-label="CSS3" title="CSS3"></i>
-                        </div>
-                        <!-- Group 2 (decorative duplicate, completes the seamless loop)-->
-                        <div class="skills-marquee-group" aria-hidden="true"><i class="skill-icon devicon-csharp-plain colored"></i><i class="skill-icon devicon-python-plain colored"></i><i class="skill-icon devicon-c-plain colored"></i><i class="skill-icon devicon-cplusplus-plain colored"></i><i class="skill-icon devicon-dotnetcore-plain colored"></i><i class="skill-icon devicon-microsoftsqlserver-plain colored"></i><i class="skill-icon devicon-azure-plain colored"></i><i class="skill-icon devicon-vscode-plain colored"></i><i class="skill-icon devicon-arduino-plain colored"></i><i class="skill-icon devicon-linux-plain linux-icon"></i><i class="skill-icon devicon-git-plain colored"></i><i class="skill-icon devicon-github-original gh-icon"></i><i class="skill-icon devicon-docker-plain colored"></i><i class="skill-icon devicon-html5-plain colored"></i><i class="skill-icon devicon-css3-plain colored"></i></div>
-                    </div>
+                <!-- Skills Section Heading--><span class="section-kicker">skills</span>
+                <h2 class="page-section-heading text-center text-uppercase">Skills and Technologies</h2>
+                <!-- Divider-->
+                <div class="divider-custom"><div class="divider-custom-line"></div></div>
+                <!-- Skill chips — languages & backend, then tools & platforms-->
+                <div class="skills-cloud" data-stagger>
+                    <span class="skill-chip reveal"><i class="skill-icon devicon-csharp-plain colored"></i> <span class="skill-label">C#</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-dotnetcore-plain colored"></i> <span class="skill-label">.NET</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-microsoftsqlserver-plain colored"></i> <span class="skill-label">SQL Server</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-azure-plain colored"></i> <span class="skill-label">Azure</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-python-plain colored"></i> <span class="skill-label">Python</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-c-plain colored"></i> <span class="skill-label">C</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-cplusplus-plain colored"></i> <span class="skill-label">C++</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-vscode-plain colored"></i> <span class="skill-label">VS Code</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-arduino-plain colored"></i> <span class="skill-label">Arduino</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-linux-plain linux-icon"></i> <span class="skill-label">Linux</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-git-plain colored"></i> <span class="skill-label">Git</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-github-original gh-icon"></i> <span class="skill-label">GitHub</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-docker-plain colored"></i> <span class="skill-label">Docker</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-html5-plain colored"></i> <span class="skill-label">HTML5</span></span
+                    ><span class="skill-chip reveal"><i class="skill-icon devicon-css3-plain colored"></i> <span class="skill-label">CSS3</span></span>
                 </div>
             </div>
         </section>
         <!-- Projects Section-->
-        <section class="page-section portfolio" id="projects">
+        <section class="page-section" id="projects">
             <div class="container">
-                <!-- Projects Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Recent Projects</h2>
-                <!-- Icon Divider-->
+                <!-- Projects Section Heading--><span class="section-kicker">projects</span>
+                <h2 class="page-section-heading text-center text-uppercase">Recent Projects</h2>
+                <!-- Divider-->
                 <div class="divider-custom"><div class="divider-custom-line"></div></div>
-                <!-- Projects List-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <ul class="list-unstyled">
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Developer Portfolio Website</h4>
-                                <p>Aug 2024 - Present</p>
-                                <a class="btn btn-primary" href="https://github.com/rluna319/Ryan-Luna-Dev" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Hydrodynamics-Based Flocking and Obstacle Avoidance for Robot Swarms</h4>
-                                <p>May 2024 - Aug 2024</p>
-                                <a class="btn btn-primary" href="https://github.com/MARSLab-UTRGV/Hydroflock" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms</h4>
-                                <p>Aug 2023 - May 2024</p>
-                                <a class="btn btn-primary" href="https://github.com/MARSLab-UTRGV/Foraging_Swarm_Defense" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms</h4>
-                                <p>Jan 2023 - Jun 2023</p>
-                                <a class="btn btn-primary" href="https://github.com/MARSLab-UTRGV/Adaptive-Multiple-Distributed-Spiral-Search-Algorithm" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms</h4>
-                                <p>Aug 2022 - May 2023</p>
-                                <a class="btn btn-primary" href="https://github.com/MARSLab-UTRGV/CPFA_DoS" target="_blank">Check it out!</a>
-                            </li>
-                        </ul>
+                <!-- Projects Grid-->
+                <div class="row g-4 justify-content-center" data-stagger>
+                    <div class="col-md-6">
+                        <div class="project-card glass-card reveal">
+                            <div class="project-card-top">
+                                <i class="fab fa-ubuntu project-icon"></i><a class="project-github" href="https://github.com/canonical/multipass/pull/4145" target="_blank" aria-label="Multipass pull request on GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                            <h4 class="project-title">Open Source Contribution — Canonical Multipass</h4>
+                            <p class="project-dates">2025</p>
+                            <div class="project-tags"><span class="tag">C++</span><span class="tag">gRPC</span><span class="tag">CLI</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card glass-card reveal">
+                            <div class="project-card-top">
+                                <i class="fas fa-rocket project-icon"></i><a class="project-github" href="https://github.com/rluna319/Ryan-Luna-Dev" target="_blank" aria-label="Developer Portfolio Website on GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                            <h4 class="project-title">Developer Portfolio Website</h4>
+                            <p class="project-dates">Aug 2024 - Present</p>
+                            <div class="project-tags"><span class="tag">Pug</span><span class="tag">SCSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card glass-card reveal">
+                            <div class="project-card-top">
+                                <i class="fas fa-water project-icon"></i><a class="project-github" href="https://github.com/MARSLab-UTRGV/Hydroflock" target="_blank" aria-label="Hydroflock on GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                            <h4 class="project-title">Hydrodynamics-Based Flocking and Obstacle Avoidance for Robot Swarms</h4>
+                            <p class="project-dates">May 2024 - Aug 2024</p>
+                            <div class="project-tags"><span class="tag">Swarm Robotics</span><span class="tag">Flocking</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card glass-card reveal">
+                            <div class="project-card-top">
+                                <i class="fas fa-shield-halved project-icon"></i><a class="project-github" href="https://github.com/MARSLab-UTRGV/Foraging_Swarm_Defense" target="_blank" aria-label="Foraging Swarm Defense on GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                            <h4 class="project-title">Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms</h4>
+                            <p class="project-dates">Aug 2023 - May 2024</p>
+                            <div class="project-tags"><span class="tag">Swarm Security</span><span class="tag">Pheromone Trails</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card glass-card reveal">
+                            <div class="project-card-top">
+                                <i class="fas fa-route project-icon"></i><a class="project-github" href="https://github.com/MARSLab-UTRGV/Adaptive-Multiple-Distributed-Spiral-Search-Algorithm" target="_blank" aria-label="Adaptive Spiral Search Algorithm on GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                            <h4 class="project-title">Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms</h4>
+                            <p class="project-dates">Jan 2023 - Jun 2023</p>
+                            <div class="project-tags"><span class="tag">Path Planning</span><span class="tag">Foraging Swarms</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card glass-card reveal">
+                            <div class="project-card-top">
+                                <i class="fas fa-virus-slash project-icon"></i><a class="project-github" href="https://github.com/MARSLab-UTRGV/CPFA_DoS" target="_blank" aria-label="CPFA DoS on GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                            <h4 class="project-title">Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms</h4>
+                            <p class="project-dates">Aug 2022 - May 2023</p>
+                            <div class="project-tags"><span class="tag">Swarm Security</span><span class="tag">Quarantine Strategies</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Research Publications Section-->
-        <section class="page-section publications" id="publications">
+        <section class="page-section" id="publications">
             <div class="container">
-                <!-- Research Publications Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Research Publications</h2>
-                <!-- Icon Divider-->
+                <!-- Research Publications Section Heading--><span class="section-kicker">publications</span>
+                <h2 class="page-section-heading text-center text-uppercase">Research Publications</h2>
+                <!-- Divider-->
                 <div class="divider-custom"><div class="divider-custom-line"></div></div>
-                <!-- Publications List-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <ul class="list-unstyled">
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms</h4>
-                                <p>IEEE · Jun 24, 2024</p>
-                                <a class="btn btn-primary" href="https://ieeexplore.ieee.org/abstract/document/10597515/" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms</h4>
-                                <p>IEEE · Apr 19, 2024</p>
-                                <a class="btn btn-primary" href="https://ieeexplore.ieee.org/abstract/document/10585509/" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms</h4>
-                                <p>IEEE · Jun 6, 2023</p>
-                                <a class="btn btn-primary" href="https://ieeexplore.ieee.org/abstract/document/10229868" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Reliability and Security of Extreme Parallelism</h4>
-                                <p>IEEE · Oct 19, 2021</p>
-                                <a class="btn btn-primary" href="https://ieeexplore.ieee.org/abstract/document/9580723" target="_blank">Check it out!</a>
-                            </li>
-                            <li class="mb-4">
-                                <h4 class="text-secondary">Security and Reliability of Safety-Critical RTOS</h4>
-                                <p>Springer Nature · Jun 25, 2021</p>
-                                <a class="btn btn-primary" href="https://rdcu.be/cneJY" target="_blank">Check it out!</a>
-                            </li>
-                        </ul>
+                <!-- Publications Timeline-->
+                <div class="timeline" data-stagger>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-card glass-card">
+                            <div class="pub-meta"><span class="pub-venue venue-ieee">IEEE</span><span class="pub-date">Jun 24, 2024</span></div>
+                            <h4 class="pub-title">Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms</h4>
+                            <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10597515/" target="_blank">Read the paper <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-card glass-card">
+                            <div class="pub-meta"><span class="pub-venue venue-ieee">IEEE</span><span class="pub-date">Apr 19, 2024</span></div>
+                            <h4 class="pub-title">Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms</h4>
+                            <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10585509/" target="_blank">Read the paper <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-card glass-card">
+                            <div class="pub-meta"><span class="pub-venue venue-ieee">IEEE</span><span class="pub-date">Jun 6, 2023</span></div>
+                            <h4 class="pub-title">Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms</h4>
+                            <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10229868" target="_blank">Read the paper <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-card glass-card">
+                            <div class="pub-meta"><span class="pub-venue venue-ieee">IEEE</span><span class="pub-date">Oct 19, 2021</span></div>
+                            <h4 class="pub-title">Reliability and Security of Extreme Parallelism</h4>
+                            <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/9580723" target="_blank">Read the paper <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-card glass-card">
+                            <div class="pub-meta"><span class="pub-venue venue-springer">Springer Nature</span><span class="pub-date">Jun 25, 2021</span></div>
+                            <h4 class="pub-title">Security and Reliability of Safety-Critical RTOS</h4>
+                            <a class="pub-link" href="https://rdcu.be/cneJY" target="_blank">Read the paper <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -173,48 +231,50 @@
         <!-- Contact Section-->
         <section class="page-section" id="contact">
             <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-                <!-- Icon Divider-->
+                <!-- Contact Section Heading--><span class="section-kicker">contact</span>
+                <h2 class="page-section-heading text-center text-uppercase">Contact Me</h2>
+                <!-- Divider-->
                 <div class="divider-custom"><div class="divider-custom-line"></div></div>
                 <!-- Form broken notification--><!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <form id="contactForm" action="https://formspree.io/f/xvgpndkb" method="POST" novalidate>
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" name="name" placeholder="Enter your name..." required autocomplete="name" /><label for="name">Full name</label>
-                                <div class="invalid-feedback">A name is required.</div>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" required autocomplete="email" /><label for="email">Email address</label>
-                                <div class="invalid-feedback">A valid email is required.</div>
-                            </div>
-                            <!-- Phone number input (optional)-->
-                            <div class="form-floating mb-3"><input class="form-control" id="phone" type="tel" name="phone" placeholder="(123) 456-7890" autocomplete="tel" /><label for="phone">Phone number (optional)</label></div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" placeholder="Enter your message here..." name="message" style="height: 10rem" required autocomplete="off"></textarea><label for="message">Message</label>
-                                <div class="invalid-feedback">A message is required.</div>
-                            </div>
-                            <!-- Recruiter question-->
-                            <div class="form-floating mb-3">
-                                <div class="d-flex align-items-center">
-                                    <label class="form-label me-3" for="recruiter-yes">Are you a recruiter?</label>
-                                    <div class="form-check form-check-inline"><input class="form-check-input" id="recruiter-yes" type="radio" name="recruiter" value="yes" required /><label class="form-check-label" for="recruiter-yes">Yes</label></div>
-                                    <div class="form-check form-check-inline"><input class="form-check-input" id="recruiter-no" type="radio" name="recruiter" value="no" checked required /><label class="form-check-label" for="recruiter-no">No</label></div>
+                        <div class="contact-panel glass-card reveal">
+                            <form id="contactForm" action="https://formspree.io/f/xvgpndkb" method="POST" novalidate>
+                                <!-- Name input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="name" type="text" name="name" placeholder="Enter your name..." required autocomplete="name" /><label for="name">Full name</label>
+                                    <div class="invalid-feedback">A name is required.</div>
                                 </div>
-                                <!-- Company field, visible when 'Yes' is selected-->
-                                <div class="collapse" id="companyField" aria-hidden="true">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="company" type="text" placeholder="Enter your company..." required disabled autocomplete="organization" /><label for="company">Company or Business Name</label>
-                                        <div class="invalid-feedback">A company or business name is required.</div>
+                                <!-- Email address input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" required autocomplete="email" /><label for="email">Email address</label>
+                                    <div class="invalid-feedback">A valid email is required.</div>
+                                </div>
+                                <!-- Phone number input (optional)-->
+                                <div class="form-floating mb-3"><input class="form-control" id="phone" type="tel" name="phone" placeholder="(123) 456-7890" autocomplete="tel" /><label for="phone">Phone number (optional)</label></div>
+                                <!-- Message input-->
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" id="message" placeholder="Enter your message here..." name="message" style="height: 10rem" required autocomplete="off"></textarea><label for="message">Message</label>
+                                    <div class="invalid-feedback">A message is required.</div>
+                                </div>
+                                <!-- Recruiter question-->
+                                <div class="form-floating mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <label class="form-label me-3" for="recruiter-yes">Are you a recruiter?</label>
+                                        <div class="form-check form-check-inline"><input class="form-check-input" id="recruiter-yes" type="radio" name="recruiter" value="yes" required /><label class="form-check-label" for="recruiter-yes">Yes</label></div>
+                                        <div class="form-check form-check-inline"><input class="form-check-input" id="recruiter-no" type="radio" name="recruiter" value="no" checked required /><label class="form-check-label" for="recruiter-no">No</label></div>
+                                    </div>
+                                    <!-- Company field, visible when 'Yes' is selected-->
+                                    <div class="collapse" id="companyField" aria-hidden="true">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="company" type="text" placeholder="Enter your company..." required disabled autocomplete="organization" /><label for="company">Company or Business Name</label>
+                                            <div class="invalid-feedback">A company or business name is required.</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Hidden Subject--><input class="form-control" id="subject" type="hidden" name="subject" value="[Formspree] Form Submission" /><!-- Submit Button--><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
-                        </form>
+                                <!-- Hidden Subject--><input class="form-control" id="subject" type="hidden" name="subject" value="[Formspree] Form Submission" /><!-- Submit Button--><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,10 +301,11 @@
             </div>
         </footer>
         <!-- BMC-Button (generated)--><!-- Buy me a coffee widget--><!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
+        <div class="copyright py-4 text-center">
             <div class="container"><small>Copyright &copy; 2024 Ryan Luna.</small><br />The template and design of this website are licensed under the MIT License.<br />Personal information such as name, images, and other identifying details are not for reuse or distribution without explicit permission.</div>
         </div>
-        <!-- Portfolio Modals--><!-- Bootstrap core JS-->
+        <!-- Back to top--><button id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button
+        ><!-- Portfolio Modals--><!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Navbar JS-->
         <script src="js/navbar.js"></script>
@@ -252,5 +313,7 @@
         <script src="js/form.js"></script>
         <!-- Skills JS-->
         <script src="js/skills.js"></script>
+        <!-- Visual effects JS-->
+        <script src="js/effects.js"></script>
     </body>
 </html>
