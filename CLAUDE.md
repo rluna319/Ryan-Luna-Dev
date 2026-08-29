@@ -11,7 +11,7 @@ A static single-page developer portfolio site (Pug → HTML, SCSS/Bootstrap → 
 - `npm run build` — full production build: `clean` → `build:pug` → `build:scss` → `build:scripts` → `build:assets`, output to `dist/`.
 - `npm start` — build once, then run `scripts/start.js`, which runs `sb-watch.js` (chokidar watcher, incremental re-render on change) concurrently with `browser-sync` serving `dist/` with live reload.
 - `npm run start:debug` — same as `start`, but launches `sb-watch.js` with `--inspect` and without reload debounce tuning.
-- `npm run deploy` — publishes `dist/` to the `gh-pages` branch via the `gh-pages` CLI (`gh-pages -d dist -m "v$npm_package_version"`). Always run `npm run build` first — `deploy` does not build for you.
+- `npm run deploy` — publishes `dist/` to the `gh-pages` branch via `scripts/deploy.js` (Node wrapper around the `gh-pages` package; commit message is `v<version>` from package.json). Always run `npm run build` first — `deploy` does not build for you. Don't switch this script back to the raw `gh-pages` CLI with `${npm_package_version}` — cmd.exe doesn't expand POSIX vars, producing literal `v${npm_package_version}` commit messages on Windows.
 - `npm run cleanup-deployments` — runs `scripts/cleanup-deployments.mjs`, which uses Octokit to delete inactive GitHub deployment records for this repo. Requires `DEV_PORTFOLIO_GITHUB_API_TOKEN` in the environment.
 - There is no lint or test command configured.
 
@@ -26,7 +26,7 @@ A static single-page developer portfolio site (Pug → HTML, SCSS/Bootstrap → 
 
 `scripts/sb-watch.js` (used by `npm start`) mirrors this dispatch logic for the file watcher: it maps a changed file's path to the right `render-*` call, and re-renders **all** Pug files (not just the changed one) when a file under `includes/`, `mixins/`, or `pug/layouts/` changes, since those are shared partials.
 
-`scripts/deploy.js` exists but is **not** wired into any npm script — the actual `deploy` script invokes the `gh-pages` CLI directly. Don't assume `deploy.js` runs; treat it as dead/legacy code unless a script is updated to call it.
+`scripts/deploy.js` is the deploy entry point (wired to `npm run deploy`).
 
 **Site content.** The entire page is one template, `src/pug/index.pug` — sections for nav, masthead, projects, publications, about, skills, and contact are all inline in that one file, not split into includes. `src/pug/includes/icons.pug` holds a large icon-name mixin/data set; `includes/portfolio-modal-template.pug` exists but is currently unreferenced (commented out at the bottom of `index.pug`).
 
