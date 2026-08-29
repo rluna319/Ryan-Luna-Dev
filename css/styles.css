@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
-* Ryan Luna | Developer Hub v1.1.0 (https://rluna319.github.io/Ryan-Luna-Dev/)
+* Ryan Luna | Developer Hub v1.3.0 (https://rluna319.github.io/Ryan-Luna-Dev/)
 * Based on Start Bootstrap
 * Copyright 2013-2026 Ryan Luna
 * Licensed under MIT (see LICENSE file in the project root for more information)
@@ -10900,6 +10900,9 @@ html {
 }
 #mainNav .navbar-brand #console-logo {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 #mainNav .navbar-brand #console-logo #logo-show-cursor {
   width: 40px;
@@ -10984,6 +10987,12 @@ html {
 .masthead .masthead-avatar {
   width: 15rem;
 }
+.masthead .wave {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: -0.2em;
+}
 
 .masthead-avatar {
   width: 250px;
@@ -11064,6 +11073,13 @@ html {
   border-radius: 10px;
   max-width: 100%;
 }
+#about a {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+}
+#about a:hover {
+  color: #A9A9A9;
+}
 
 .about-container {
   display: flex;
@@ -11076,25 +11092,29 @@ html {
   }
 }
 
-#skills .skills-container {
+#skills .skills-marquee {
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+#skills .skills-marquee-track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation: skills-marquee 32s linear infinite;
+}
+#skills .skills-marquee:hover .skills-marquee-track {
+  animation-play-state: paused;
+}
+#skills .skills-marquee-group {
   display: flex;
   gap: 15px;
-  overflow-x: auto;
-  padding: 10px;
-  scroll-behavior: smooth;
+  flex: 0 0 auto;
+  padding-right: 15px;
 }
-#skills .skills-container::-webkit-scrollbar {
-  height: 8px;
-}
-#skills .skills-container::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-#skills .skills-container::-webkit-scrollbar-track {
-  background-color: #212529;
-  border-radius: 10px;
-}
-#skills .skills-container .skill-icon {
+#skills .skill-icon {
   width: 100px;
   height: 100px;
   display: inline-flex;
@@ -11104,15 +11124,18 @@ html {
   line-height: 1;
   flex: 0 0 auto;
 }
-#skills .skills-container .gh-icon {
+#skills .gh-icon {
   color: #f8f9fa;
 }
-#skills .skills-container .linux-icon {
+#skills .linux-icon {
   color: #f8f9fa;
 }
-@media (max-width: 768px) {
-  #skills .skills-container .skills-container {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
+
+@keyframes skills-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
