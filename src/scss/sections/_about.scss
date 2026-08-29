@@ -1,44 +1,68 @@
-#about {
-    padding: 2rem 0; // Padding for the section top and bottom
-    .row {
-        margin-bottom: 2rem; // Space between rows if needed
-    }
+//
+// About
+//
 
-    h4 {
-        font-weight: 600; // Adjust weight to make headings stand out
-        margin-bottom: 1rem; // Add space below the headers
+#about {
+    .row {
+        margin-bottom: 2rem;
     }
 
     p.lead {
-        margin-bottom: 2rem; // Space between paragraphs
-        font-size: 1.1rem; // Slightly larger text for better readability
-        line-height: 1.6;
+        margin-bottom: 1.75rem;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: $text-muted;
     }
 
-    img {
-        border-radius: 10px; // Softens the image with rounded corners
-        max-width: 100%; // Makes sure image scales well in smaller screens
-    }
-
-    // Default link color matches the section's dark background and would be
-    // invisible here, so override it explicitly.
-    a {
-        color: $white;
-        text-decoration-color: rgba($white, 0.5);
+    // Photo with subtle glass frame + hover lift
+    .about-photo {
+        border-radius: 16px;
+        border: 1px solid $card-border;
+        max-width: 100%;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
 
         &:hover {
-            color: $light-gray;
+            transform: translateY(-6px) rotate(-0.5deg);
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba($accent-1, 0.15);
+        }
+    }
+
+    // Small fact chips (location, role, publications)
+    .about-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 1.75rem;
+
+        .chip {
+            font-family: $font-family-mono;
+            font-size: 0.82rem;
+            color: $text-primary;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            background: $card-bg;
+            border: 1px solid $card-border;
+            transition: border-color 0.25s ease, color 0.25s ease;
+
+            i {
+                color: $accent-2;
+                margin-right: 0.4rem;
+            }
+
+            &:hover {
+                border-color: rgba($accent-2, 0.5);
+            }
+        }
+    }
+
+    a {
+        color: $accent-2;
+        text-decoration-color: rgba($accent-2, 0.4);
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: lighten($accent-2, 12%);
         }
     }
 }
-
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media (max-width: 768px) {
-        flex-direction: column; // Stack the image and text for smaller screens
-    }
-}
-

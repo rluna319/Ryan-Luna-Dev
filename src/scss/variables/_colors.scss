@@ -1,11 +1,24 @@
-// 
+//
 // Colors
-// 
+//
 
 //- Override and add to color system
 $dark-gray: #1C1C21;
 $darker-gray: #131316;
 $light-gray: #A9A9A9;
+
+//- Modern dark theme palette
+$bg-base: #0d0d12;                          // page background
+$bg-elevated: #131316;                      // raised surfaces (footer, etc.)
+$card-bg: rgba(255, 255, 255, 0.04);        // glass card fill
+$card-border: rgba(255, 255, 255, 0.08);    // glass card border
+$text-primary: #f4f4f5;
+$text-muted: #a1a1aa;
+
+//- Accent gradient (violet -> cyan)
+$accent-1: #8b5cf6;
+$accent-2: #22d3ee;
+$accent-gradient: linear-gradient(120deg, $accent-1, $accent-2);
 
 //- Override primary color
 $primary: $dark-gray;

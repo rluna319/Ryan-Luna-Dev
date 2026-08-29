@@ -1,29 +1,128 @@
-// 
-// Masthead
-// 
+//
+// Masthead (hero)
+//
 
 .masthead {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding-top: calc(4rem + 74px);
+    padding-bottom: 5rem;
 
-    // // Background image
-    // background-image: url('../../assets/img/bgimg/rocket_laptop_bg.webp');
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
+    // Faint blueprint grid behind the hero, fading out towards the edges
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
+        -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
+        pointer-events: none;
+    }
 
-    padding-top: calc(6rem + 74px);
-    padding-bottom: 6rem;
+    // Particle constellation canvas
+    #hero-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    // Blurred color glows drifting behind the content
+    .masthead-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.35;
+        pointer-events: none;
+        animation: glow-drift 14s ease-in-out infinite alternate;
+
+        &.glow-1 {
+            width: 480px;
+            height: 480px;
+            left: -120px;
+            top: 8%;
+            background: $accent-1;
+        }
+
+        &.glow-2 {
+            width: 420px;
+            height: 420px;
+            right: -100px;
+            bottom: 4%;
+            background: $accent-2;
+            animation-delay: -7s;
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
 
     .masthead-heading {
         font-size: 2.75rem;
-        line-height: 2.75rem;
+        line-height: 1.15;
+        margin-top: 2rem;
     }
 
-    .masthead-subheading {
+    // Typewriter line under the heading
+    .masthead-typewriter {
+        font-family: $font-family-mono;
+        font-size: 1.15rem;
+        color: $text-muted;
+        margin-top: 1.25rem;
+        min-height: 1.8em; // keep layout stable while text types/deletes
+
+        #typewriter {
+            color: $accent-2;
+        }
+
+        .type-cursor {
+            display: inline-block;
+            width: 0.6em;
+            margin-left: 2px;
+            border-bottom: 2px solid $accent-2;
+            animation: cursor-blink 1s steps(1) infinite;
+        }
+
+        &::before {
+            content: '> ';
+            opacity: 0.5;
+        }
+    }
+
+    .masthead-cta {
+        margin-top: 2.25rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    // Bouncing scroll cue at the bottom of the hero
+    .scroll-indicator {
+        position: absolute;
+        bottom: 1.75rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: $text-muted;
         font-size: 1.25rem;
-    }
+        z-index: 2;
+        animation: scroll-bounce 2s ease-in-out infinite;
+        transition: color 0.25s ease;
 
-    .masthead-avatar {
-        width: 15rem;
+        &:hover {
+            color: $accent-2;
+        }
     }
 
     // Waving hand GIF in the heading (animation is baked into the GIF)
@@ -35,27 +134,87 @@
     }
 }
 
-.masthead-avatar {
-    width: 250px; // Adjust size as needed
-    height: 250px; // Adjust size as needed
-    border-radius: 50%; // Makes the image a circle
-    object-fit: cover; // Ensures the image covers the area without distortion
-    border: 5px solid $primary; // Optional: adds a border around the image
+// Avatar with a slowly rotating gradient ring + soft glow
+.avatar-frame {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    margin: 0 auto;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: conic-gradient($accent-1, $accent-2, $accent-1);
+        animation: ring-spin 8s linear infinite;
+    }
+
+    &::before {
+        inset: -5px;
+    }
+
+    &::after {
+        inset: -12px;
+        filter: blur(26px);
+        opacity: 0.45;
+    }
+
+    .masthead-avatar {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid $bg-base;
+    }
+}
+
+@keyframes ring-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow-drift {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(40px, -30px) scale(1.15);
+    }
+}
+
+@keyframes cursor-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes scroll-bounce {
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, 8px);
+    }
 }
 
 @include media-breakpoint-up(lg) {
     .masthead {
-        padding-top: calc(6rem + 104px);
-        padding-bottom: 6rem;
-
         .masthead-heading {
             font-size: 4rem;
-            line-height: 3.5rem;
         }
 
-        .masthead-subheading {
-            font-size: 1.5rem;
+        .masthead-typewriter {
+            font-size: 1.35rem;
         }
+    }
 
+    .avatar-frame {
+        width: 260px;
+        height: 260px;
     }
 }

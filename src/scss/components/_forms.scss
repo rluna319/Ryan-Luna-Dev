@@ -1,27 +1,78 @@
-// 
-// Forms
-// 
+//
+// Forms (contact section)
+//
+
+// Glass panel wrapping the contact form
+.contact-panel {
+    padding: 2rem 1.5rem;
+
+    @include media-breakpoint-up(lg) {
+        padding: 3rem;
+    }
+}
 
 .form-floating {
 
     input.form-control,
     textarea.form-control {
-        font-size: 1.5rem;
-        border-left: 0;
-        border-right: 0;
-        border-top: 0;
+        font-size: 1.15rem;
+        color: $text-primary;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid $card-border;
         border-radius: 0;
-        border-width: 1px;
+        transition: border-color 0.25s ease;
 
         &:focus {
             box-shadow: none;
+            background: transparent;
+            color: $text-primary;
+            border-bottom-color: $accent-2;
         }
-
     }
 
     label {
-        font-size: 1.5rem;
-        color: $gray-600;
+        font-size: 1.05rem;
+        color: $text-muted;
     }
 
+    // Keep floating labels legible on the dark background
+    > .form-control:focus ~ label,
+    > .form-control:not(:placeholder-shown) ~ label {
+        color: $accent-2;
+        background: transparent;
+
+        &::after {
+            background: transparent !important;
+        }
+    }
+}
+
+// Recruiter radio row
+#contactForm {
+    .form-label {
+        color: $text-muted;
+    }
+
+    .form-check-label {
+        color: $text-primary;
+    }
+
+    .form-check-input {
+        background-color: transparent;
+        border-color: $card-border;
+
+        &:checked {
+            background-color: $accent-1;
+            border-color: $accent-1;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($accent-1, 0.25);
+        }
+    }
+
+    .invalid-feedback {
+        color: #f87171;
+    }
 }

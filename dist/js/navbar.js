@@ -18,19 +18,34 @@ window.addEventListener('DOMContentLoaded', event => {
 
     };
 
-    // Shrink the navbar 
+    // Shrink the navbar
     navbarShrink();
 
     // Shrink the navbar when page is scrolled
+    document.addEventListener('scroll', navbarShrink, { passive: true });
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
+    // Lightweight scrollspy (Bootstrap 5.2's IntersectionObserver scrollspy
+    // gets stuck on tall sections): highlight the nav link of the last
+    // section whose top has passed 35% of the viewport.
+    const navLinks = Array.from(document.querySelectorAll('#mainNav .nav-link[href^="#"]'));
+    const spySections = navLinks
+        .map(function (link) { return document.querySelector(link.getAttribute('href')); })
+        .filter(Boolean);
+
+    function updateScrollSpy() {
+        const pos = window.scrollY + window.innerHeight * 0.35;
+        let current = null;
+        spySections.forEach(function (section) {
+            if (section.offsetTop <= pos) {
+                current = '#' + section.id;
+            }
         });
-    };
+        navLinks.forEach(function (link) {
+            link.classList.toggle('active', link.getAttribute('href') === current);
+        });
+    }
+    document.addEventListener('scroll', updateScrollSpy, { passive: true });
+    updateScrollSpy();
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
