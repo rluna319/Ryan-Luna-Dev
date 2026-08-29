@@ -1,25 +1,33 @@
-// 
+//
 // Navbar
-// 
+//
 
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-family: $headings-font-family;
     font-weight: $headings-font-weight;
+    background: rgba($bg-base, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: padding-top 0.3s, padding-bottom 0.3s, background 0.3s;
 
     // my name and logo
     .navbar-brand {
         color: $white;
         margin-right: auto; // push to the left
+        font-family: $font-family-mono;
+        font-weight: 600;
+        letter-spacing: 0.02em;
 
-        #console-logo{
+        #console-logo {
             position: relative;
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
 
-            #logo-show-cursor{
+            #logo-show-cursor {
                 width: 40px;
                 height: 40px;
             }
@@ -29,18 +37,38 @@
     .navbar-nav {
         li.nav-item {
             a.nav-link {
-                color: $white; // default link color
+                color: $text-muted; // default link color
+                position: relative;
+                transition: color 0.25s ease;
+
+                // Animated gradient underline
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0.75rem;
+                    right: 0.75rem;
+                    bottom: 0.55rem;
+                    height: 2px;
+                    border-radius: 2px;
+                    background: $accent-gradient;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 0.3s ease;
+                }
 
                 &:hover {
-                    color: $light-gray; // color on hover
+                    color: $text-primary;
+
+                    &::after {
+                        transform: scaleX(1);
+                    }
                 }
 
                 &.active {
-                    color: $primary; // active link color
-                    background-color: $secondary; // background highlight when active
+                    color: $text-primary;
 
-                    &:hover {
-                        color: $white; // hover color on active link
+                    &::after {
+                        transform: scaleX(1);
                     }
                 }
             }
@@ -48,51 +76,44 @@
     }
 
     // Styles for the collapsed menu (hamburger menu)
-    .navbar-collapse.show {
-        li.nav-item {
-            a.nav-link {
-                &.active {
-                    color: $white; // active link text color
-                    background-color: $primary; // active background color in collapsed menu
-                }
-            }
+    .navbar-toggler {
+        border: 1px solid $card-border;
+        background: $card-bg;
+        color: $text-primary;
+    }
+
+    // Nearly opaque bar while the mobile menu is open, so page content
+    // doesn't ghost through the backdrop blur behind the links
+    &:has(.navbar-collapse.show),
+    &:has(.navbar-collapse.collapsing) {
+        background: rgba($bg-base, 0.97);
+    }
+
+    @include media-breakpoint-down(lg) {
+        .navbar-collapse {
+            margin-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 0.5rem;
         }
     }
 
     @include media-breakpoint-up(lg) {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        transition: padding-top 0.3s, padding-bottom 0.3s;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
 
         .navbar-brand {
-            font-size: 1.75em;
+            font-size: 1.5em;
             transition: font-size 0.3s;
         }
 
-        .navbar-nav {
-            margin-top: 0;
-
-            li.nav-item {
-                a.nav-link.active {
-                    background-color: $primary; // background highlight for active links
-                    color: $white; // text color for active links
-
-                    &:hover {
-                        background-color: $primary; // maintain hover effect
-                        color: $white;
-                    }
-                }
-            }
-        }
-
-        #mainNav.navbar-shrink {
+        &.navbar-shrink {
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
+            background: rgba($bg-base, 0.88);
 
             .navbar-brand {
-                font-size: 1.5em;
+                font-size: 1.25em;
             }
         }
     }
 }
-

@@ -31,3 +31,7 @@ sans-serif,
 'Noto Color Emoji';
 
 $headings-font-weight: 700;
+
+// Monospace accent font for the console-flavored details
+// (kickers, typewriter, nav brand)
+$font-family-mono: "JetBrains Mono", "Cascadia Code", Consolas, "Courier New", monospace;

@@ -1,55 +1,97 @@
+//
+// Skills — centered cloud of labeled chips
+//
+
 #skills {
-  .skills-marquee {
-    overflow: hidden;
-    width: 100%;
-    padding: 10px 0;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  }
+    .skills-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.85rem;
+        max-width: 820px;
+        margin: 0 auto;
+    }
 
-  .skills-marquee-track {
-    display: flex;
-    width: max-content;
-    animation: skills-marquee 32s linear infinite;
-  }
+    // Icon + label pill
+    .skill-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.65rem 1.15rem;
+        border-radius: 999px;
+        background: $card-bg;
+        border: 1px solid $card-border;
+        white-space: nowrap;
+        transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 
-  .skills-marquee:hover .skills-marquee-track {
-    animation-play-state: paused;
-  }
+        &:hover {
+            border-color: rgba($accent-2, 0.55);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 18px rgba($accent-2, 0.12);
+        }
 
-  .skills-marquee-group {
-    display: flex;
-    gap: 15px;
-    flex: 0 0 auto;
-    padding-right: 15px;
-  }
+        .skill-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            animation: icon-bob 4.8s ease-in-out infinite;
+        }
 
-  .skill-icon {
-    width: 100px;
-    height: 100px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4.5rem;
-    line-height: 1;
-    flex: 0 0 auto;
-  }
+        // Quick wiggle on hover (replaces the bob while hovered)
+        &:hover .skill-icon {
+            animation: icon-wiggle 0.5s ease;
+        }
 
-  .gh-icon {
-    color: $light;
-  }
+        .skill-label {
+            font-family: $font-family-mono;
+            font-size: 0.9rem;
+            color: $text-primary;
+        }
+    }
 
-  .linux-icon {
-    color: $light;
-  }
+    // Desync the bobbing so the cloud idles instead of marching in step.
+    // Negative delays start each icon mid-cycle.
+    .skill-chip:nth-child(2n) .skill-icon {
+        animation-delay: -1.2s;
+    }
+    .skill-chip:nth-child(3n) .skill-icon {
+        animation-duration: 5.6s;
+        animation-delay: -2.5s;
+    }
+    .skill-chip:nth-child(4n + 1) .skill-icon {
+        animation-delay: -3.4s;
+    }
+    .skill-chip:nth-child(5n + 2) .skill-icon {
+        animation-duration: 4.1s;
+        animation-delay: -0.7s;
+    }
 
+    .gh-icon,
+    .linux-icon {
+        color: $light;
+    }
 }
 
-@keyframes skills-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+@keyframes icon-bob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes icon-wiggle {
+    0% {
+        transform: rotate(0);
+    }
+    30% {
+        transform: rotate(-12deg) scale(1.12);
+    }
+    60% {
+        transform: rotate(9deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
 }

@@ -1,11 +1,57 @@
-// 
+//
 // Buttons
-// 
+//
 
 // Custom extra large button size
 .btn-xl {
     padding: 1rem 1.75rem;
     font-size: 1.25rem;
+}
+
+// Gradient-accent primary buttons
+.btn-primary {
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-bg: transparent;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-bg: transparent;
+    --bs-btn-active-border-color: transparent;
+    background: $accent-gradient;
+    border: none;
+    font-weight: 600;
+    color: $white;
+    box-shadow: 0 4px 18px rgba($accent-1, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover,
+    &:focus {
+        background: $accent-gradient;
+        color: $white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 26px rgba($accent-2, 0.35);
+    }
+
+    &:active {
+        background: $accent-gradient !important;
+        color: $white !important;
+        transform: none;
+    }
+}
+
+// Ghost / glass secondary button
+.btn-glass {
+    background: $card-bg;
+    border: 1px solid $card-border;
+    color: $text-primary;
+    font-weight: 600;
+    transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+
+    &:hover,
+    &:focus {
+        color: $accent-2;
+        border-color: rgba($accent-2, 0.6);
+        transform: translateY(-2px);
+    }
 }
 
 // Custom social buttons
@@ -17,4 +63,12 @@
     font-size: 1.25rem;
     justify-content: center;
     align-items: center;
+    transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        border-color: $accent-2;
+        color: $accent-2;
+        box-shadow: 0 6px 18px rgba($accent-2, 0.25);
+    }
 }

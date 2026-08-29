@@ -1,30 +1,157 @@
-// 
+//
 // Global
-// 
+//
 
 // Scroll padding for all scroll targets on page used with
 // native CSS smooth scrolling
-// 
+//
 // https://caniuse.com/?search=scroll-padding
 
 html {
     height: 100%;
     scroll-padding-top: calc(#{$navbar-height} - 1px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $bg-base;
+    color: $text-primary;
+    overflow-x: hidden;
+}
+
+// Text selection in accent color
+::selection {
+    background: rgba($accent-1, 0.45);
+    color: $white;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: $bg-base;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, $accent-1, $accent-2);
+    border-radius: 8px;
+    border: 2px solid $bg-base;
 }
 
 // Styling for page sections
 .page-section {
     padding: 6rem 0;
+    position: relative;
 
     .page-section-heading {
         font-size: 2.25rem;
-        line-height: 2rem;
+        line-height: 2.6rem;
+        color: $text-primary;
     }
 
     @include media-breakpoint-up(lg) {
         .page-section-heading {
             font-size: 3rem;
-            line-height: 2.5rem;
+            line-height: 3.2rem;
         }
+    }
+}
+
+// Monospace "console path" label above each section heading (e.g. ~/projects)
+.section-kicker {
+    display: block;
+    text-align: center;
+    font-family: $font-family-mono;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: $accent-2;
+    margin-bottom: 0.75rem;
+
+    &::before {
+        content: '~/';
+        opacity: 0.55;
+    }
+}
+
+// Glass card surface used across sections
+.glass-card {
+    background: $card-bg;
+    border: 1px solid $card-border;
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+// Scroll-reveal animation. Elements are only hidden once JS has added
+// .js-reveal to <html>, so content stays visible if scripts fail to load.
+html.js-reveal {
+    .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        transition-delay: var(--reveal-delay, 0s);
+    }
+
+    .reveal.revealed {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// Thin gradient scroll-progress bar pinned to the top of the viewport
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: $accent-gradient;
+    z-index: 2000;
+}
+
+// Soft spotlight that follows the cursor
+#cursor-glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+        620px circle at var(--cx, 50%) var(--cy, 20%),
+        rgba($accent-1, 0.08),
+        transparent 65%
+    );
+}
+
+// Back-to-top button
+#back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $card-border;
+    border-radius: 12px;
+    background: rgba($bg-elevated, 0.85);
+    color: $text-primary;
+    cursor: pointer;
+    z-index: 1500;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+
+    &.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+    }
+
+    &:hover {
+        border-color: rgba($accent-2, 0.6);
+        color: $accent-2;
     }
 }

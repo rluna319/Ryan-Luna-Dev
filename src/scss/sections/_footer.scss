@@ -1,36 +1,59 @@
-// 
+//
 // Footer
-// 
+//
 
 .footer {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: $secondary;
-    color: $white;
+    background-color: $bg-elevated;
+    border-top: 1px solid $card-border;
+    color: $text-primary;
 
-    .buy-coffee-btn{
+    h4 {
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        color: $text-muted;
+    }
+
+    p.lead {
+        color: $text-primary;
+    }
+
+    .btn-social {
+        border-color: $card-border;
+        color: $text-primary;
+    }
+
+    .buy-coffee-btn {
         display: inline-block;
-        background-color: #ffffff; // Yellow background like in the image
-        border-radius: 15px; // Rounded corners
-        padding: 10px 20px; // Padding for spacing
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 10px 20px;
         text-align: center;
-        transition: background-color 0.3s ease; // Smooth hover transition
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Add subtle shadow
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         text-decoration: none;
-    
+
         img {
             display: inline-block;
-            max-width: 200px; // Adjust this to the size of your image
+            max-width: 200px;
             height: auto;
         }
-    
+
         &:hover {
-            background-color: #b1b1b1; // Slightly darker yellow on hover
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
             cursor: pointer;
         }
     }
 }
 
 .copyright {
-    background-color: darken($secondary, 10%);
+    background-color: darken($bg-elevated, 3%);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    color: $text-muted;
+
+    small {
+        color: $text-muted;
+    }
 }

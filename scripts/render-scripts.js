@@ -34,4 +34,10 @@ module.exports = function renderScripts() {
     const destPathSkillsJS = upath.resolve(destPath, 'skills.js');
     const SkillsJS = fs.readFileSync(sourcePathSkillsJS);
     fs.writeFileSync(destPathSkillsJS, SkillsJS);
+
+    // Effects JS
+    const sourcePathEffectsJS = upath.resolve(sourcePath, 'effects.js');
+    const destPathEffectsJS = upath.resolve(destPath, 'effects.js');
+    const EffectsJS = fs.readFileSync(sourcePathEffectsJS);
+    fs.writeFileSync(destPathEffectsJS, EffectsJS);
 };

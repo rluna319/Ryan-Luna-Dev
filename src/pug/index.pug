@@ -5,8 +5,8 @@ html(lang='en')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='')
-        meta(name='author', content='')
+        meta(name='description', content='Ryan Luna — software engineer building full-stack applications with C#, .NET, SQL Server, and Azure. Background in embedded systems and swarm robotics research.')
+        meta(name='author', content='Ryan Luna')
 
         title Ryan Luna - Portfolio
 
@@ -21,24 +21,30 @@ html(lang='en')
         // Google fonts
         link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
         link(href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+        link(href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap', rel='stylesheet')
 
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
 
     body#page-top
 
+        // Scroll progress bar
+        #scroll-progress
+
+        // Cursor spotlight overlay
+        #cursor-glow
+
         // Navigation
-        nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
+        nav#mainNav.navbar.navbar-expand-lg.text-uppercase.fixed-top
             .container-fluid.d-flex.justify-content-between
                 // Brand aligned to the left
                 a.navbar-brand.ms-lg-3(href='#page-top')
                     // My console logo
                     div#console-logo
-                        //- img#logo-hide-cursor(src='assets/logo/logo2B-white_no-cursor.svg', alt='Logo 2B (white)')
                         img#logo-show-cursor(src='assets/logo/logo2A-white_cursor.svg', alt='Logo 2A (white)')
                         | Ryan Luna
                 // Toggler for small screens
-                button.navbar-toggler.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                button.navbar-toggler.text-uppercase.font-weight-bold.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     i.fas.fa-bars
                 // Navbar links - Navigation items aligned to the right
                 #navbarResponsive.collapse.navbar-collapse.justify-content-end
@@ -54,168 +60,225 @@ html(lang='en')
                         li.nav-item.mx-0.mx-lg-1
                             a.nav-link.py-3.px-0.px-lg-3.rounded(href='#contact') Contact
 
-        // Masthead
-        header.masthead.bg-primary.text-white.text-center
+        // Masthead / hero
+        header.masthead
+            // Particle constellation canvas
+            canvas#hero-canvas
+            // Drifting color glows
+            .masthead-glow.glow-1
+            .masthead-glow.glow-2
             .container.d-flex.align-items-center.flex-column
-                // Masthead Avatar Image
-                img.masthead-avatar.mb-5(src='assets/img/me/headshot_pro.jpg', alt='...')
+                // Avatar with rotating gradient ring
+                .avatar-frame
+                    img.masthead-avatar(src='assets/img/me/headshot_pro.jpg', alt='Ryan Luna')
                 // Masthead Heading
                 h1.masthead-heading.mb-0 #[img.wave(src='assets/icons/hand-wave.gif', alt='', aria-hidden='true')] I'm Ryan.
-                // Masthead Subheading
-                p.masthead-subheading.font-weight-light.mb-0.mt-5 Software Engineer - Full-Stack Development - Embedded Systems
+                // Typewriter line
+                p.masthead-typewriter
+                    span#typewriter
+                    span.type-cursor(aria-hidden='true')
+                // Call-to-action buttons
+                .masthead-cta
+                    a.btn.btn-primary.btn-lg(href='#projects') View My Work
+                    a.btn.btn-glass.btn-lg(href='#contact') Get In Touch
+            // Scroll cue
+            a.scroll-indicator(href='#about', aria-label='Scroll down to the About section')
+                i.fas.fa-chevron-down
 
         // About Section
-        section#about.page-section.bg-primary.text-white.mb-0
+        section#about.page-section
             .container
                 // About Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-white About
-                // Icon Divider
-                .divider-custom.divider-white
+                span.section-kicker about
+                h2.page-section-heading.text-center.text-uppercase About
+                // Divider
+                .divider-custom
                     .divider-custom-line
                 // About Section Content
                 .row.align-items-center
-                    .col-lg-5.me-auto
-                        img.img-fluid.mb-4(src='assets/img/me/conference-presentation-photo.jpg', alt='Your Photo')
-                    .col-lg-7.ms-auto.text-start
+                    .col-lg-5.me-auto.reveal
+                        img.about-photo.img-fluid.mb-4(src='assets/img/me/conference-presentation-photo.jpg', alt='Ryan presenting research at a conference')
+                    .col-lg-7.ms-auto.text-start.reveal
+                        .about-chips
+                            span.chip #[i.fas.fa-location-dot] McAllen, TX
+                            span.chip #[i.fas.fa-briefcase] Software Engineer @ La Joya ISD
+                            span.chip #[i.fas.fa-file-lines] 5 Research Publications
                         p.lead
                             | I'm Ryan Luna, a software engineer at La Joya ISD. I build full-stack applications, APIs, and integrations with C#, .NET, and SQL Server, hosted on Azure. Most of my work centers on database design and backend architecture — keeping systems reliable as they grow.
                         p.lead
                             | My background is in embedded systems and robotics. In undergrad, I was co-captain and payload lead for UTRGV's Rocket Launchers, where I worked on avionics and sensor systems for high-powered rockets. That hands-on work is what drew me into engineering.
                         p.lead
-                            | In grad school, I started in hardware security — working with RTOS and RISC-V — then moved into swarm robotics, where my research focused on swarm security and algorithm design. I published five papers along the way.
+                            | In grad school, I started in hardware security — working with RTOS and RISC-V — then moved into swarm robotics, where my research focused on swarm security and algorithm design. I published five papers along the way. After finishing my master's, I contributed to Canonical's #[a(href='https://github.com/canonical/multipass/pull/4145', target='_blank') Multipass] project and spent a year teaching an intro to programming course in Python at UTRGV before stepping into my current role.
                         p.lead
                             | Take a look at my #[a(href='#projects') projects] and #[a(href='#publications') publications] below, and #[a(href='#contact') reach out] if you'd like to connect.
+
         // Skills and Technologies Section
-        section#skills.page-section.bg-primary.text-white.mb-0
+        section#skills.page-section
             .container
                 // Skills Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-white Skills and Technologies
-                // Icon Divider
-                .divider-custom.divider-white
+                span.section-kicker skills
+                h2.page-section-heading.text-center.text-uppercase Skills and Technologies
+                // Divider
+                .divider-custom
                     .divider-custom-line
-                // Auto-scrolling skills marquee
-                .skills-marquee
-                    .skills-marquee-track
-                        // Group 1 (real content)
-                        .skills-marquee-group
-                            // Languages (Devicon)
-                            i.skill-icon.devicon-csharp-plain.colored(aria-label='C#', title='C#')
-                            i.skill-icon.devicon-python-plain.colored(aria-label='Python', title='Python')
-                            i.skill-icon.devicon-c-plain.colored(aria-label='C', title='C')
-                            i.skill-icon.devicon-cplusplus-plain.colored(aria-label='C++', title='C++')
-
-                            // Backend & Cloud (Devicon)
-                            i.skill-icon.devicon-dotnetcore-plain.colored(aria-label='.NET', title='.NET')
-                            i.skill-icon.devicon-microsoftsqlserver-plain.colored(aria-label='SQL Server', title='SQL Server')
-                            i.skill-icon.devicon-azure-plain.colored(aria-label='Azure', title='Azure')
-
-                            // Tools & frameworks (Devicon)
-                            i.skill-icon.devicon-vscode-plain.colored(aria-label='VS Code', title='VS Code')
-                            i.skill-icon.devicon-arduino-plain.colored(aria-label='Arduino', title='Arduino')
-                            i.skill-icon.devicon-linux-plain.linux-icon(aria-label='Linux', title='Linux')
-                            i.skill-icon.devicon-git-plain.colored(aria-label='Git', title='Git')
-                            i.skill-icon.devicon-github-original.gh-icon(aria-label='GitHub', title='GitHub')
-                            i.skill-icon.devicon-docker-plain.colored(aria-label='Docker', title='Docker')
-
-                            // Less proficient languages (Devicon)
-                            i.skill-icon.devicon-html5-plain.colored(aria-label='HTML5', title='HTML5')
-                            i.skill-icon.devicon-css3-plain.colored(aria-label='CSS3', title='CSS3')
-                        // Group 2 (decorative duplicate, completes the seamless loop)
-                        .skills-marquee-group(aria-hidden='true')
-                            i.skill-icon.devicon-csharp-plain.colored
-                            i.skill-icon.devicon-python-plain.colored
-                            i.skill-icon.devicon-c-plain.colored
-                            i.skill-icon.devicon-cplusplus-plain.colored
-                            i.skill-icon.devicon-dotnetcore-plain.colored
-                            i.skill-icon.devicon-microsoftsqlserver-plain.colored
-                            i.skill-icon.devicon-azure-plain.colored
-                            i.skill-icon.devicon-vscode-plain.colored
-                            i.skill-icon.devicon-arduino-plain.colored
-                            i.skill-icon.devicon-linux-plain.linux-icon
-                            i.skill-icon.devicon-git-plain.colored
-                            i.skill-icon.devicon-github-original.gh-icon
-                            i.skill-icon.devicon-docker-plain.colored
-                            i.skill-icon.devicon-html5-plain.colored
-                            i.skill-icon.devicon-css3-plain.colored
+                // Skill chips — languages & backend, then tools & platforms
+                .skills-cloud(data-stagger)
+                    span.skill-chip.reveal #[i.skill-icon.devicon-csharp-plain.colored] #[span.skill-label C#]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-dotnetcore-plain.colored] #[span.skill-label .NET]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-microsoftsqlserver-plain.colored] #[span.skill-label SQL Server]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-azure-plain.colored] #[span.skill-label Azure]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-python-plain.colored] #[span.skill-label Python]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-c-plain.colored] #[span.skill-label C]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-cplusplus-plain.colored] #[span.skill-label C++]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-vscode-plain.colored] #[span.skill-label VS Code]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-arduino-plain.colored] #[span.skill-label Arduino]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-linux-plain.linux-icon] #[span.skill-label Linux]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-git-plain.colored] #[span.skill-label Git]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-github-original.gh-icon] #[span.skill-label GitHub]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-docker-plain.colored] #[span.skill-label Docker]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-html5-plain.colored] #[span.skill-label HTML5]
+                    span.skill-chip.reveal #[i.skill-icon.devicon-css3-plain.colored] #[span.skill-label CSS3]
 
         // Projects Section
-        section#projects.page-section.portfolio
+        section#projects.page-section
             .container
                 // Projects Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Recent Projects
-                // Icon Divider
+                span.section-kicker projects
+                h2.page-section-heading.text-center.text-uppercase Recent Projects
+                // Divider
                 .divider-custom
                     .divider-custom-line
-                // Projects List
-                .row.justify-content-center
-                    .col-lg-8
-                        ul.list-unstyled
-                            li.mb-4
-                                h4.text-secondary Developer Portfolio Website
-                                p Aug 2024 - Present
-                                a.btn.btn-primary(href='https://github.com/rluna319/Ryan-Luna-Dev', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Hydrodynamics-Based Flocking and Obstacle Avoidance for Robot Swarms
-                                p May 2024 - Aug 2024
-                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Hydroflock', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms
-                                p Aug 2023 - May 2024
-                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Foraging_Swarm_Defense', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
-                                p Jan 2023 - Jun 2023
-                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/Adaptive-Multiple-Distributed-Spiral-Search-Algorithm', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms
-                                p Aug 2022 - May 2023
-                                a.btn.btn-primary(href='https://github.com/MARSLab-UTRGV/CPFA_DoS', target='_blank') Check it out!
-                            //- li.mb-4
-                            //-     h4.text-secondary RTEC (Rapid Transport Environmental Chamber)
-                            //-     p Feb 2018 - Dec 2019
-                            //- li.mb-4
-                            //-     h4.text-secondary Object Detection Application for Android
-                            //-     p Jan 2019 - Jun 2019
+                // Projects Grid
+                .row.g-4.justify-content-center(data-stagger)
+                    .col-md-6
+                        .project-card.glass-card.reveal
+                            .project-card-top
+                                i.fab.fa-ubuntu.project-icon
+                                a.project-github(href='https://github.com/canonical/multipass/pull/4145', target='_blank', aria-label='Multipass pull request on GitHub')
+                                    i.fab.fa-github
+                            h4.project-title Open Source Contribution — Canonical Multipass
+                            p.project-dates 2025
+                            .project-tags
+                                span.tag C++
+                                span.tag gRPC
+                                span.tag CLI
+                    .col-md-6
+                        .project-card.glass-card.reveal
+                            .project-card-top
+                                i.fas.fa-rocket.project-icon
+                                a.project-github(href='https://github.com/rluna319/Ryan-Luna-Dev', target='_blank', aria-label='Developer Portfolio Website on GitHub')
+                                    i.fab.fa-github
+                            h4.project-title Developer Portfolio Website
+                            p.project-dates Aug 2024 - Present
+                            .project-tags
+                                span.tag Pug
+                                span.tag SCSS
+                                span.tag JavaScript
+                    .col-md-6
+                        .project-card.glass-card.reveal
+                            .project-card-top
+                                i.fas.fa-water.project-icon
+                                a.project-github(href='https://github.com/MARSLab-UTRGV/Hydroflock', target='_blank', aria-label='Hydroflock on GitHub')
+                                    i.fab.fa-github
+                            h4.project-title Hydrodynamics-Based Flocking and Obstacle Avoidance for Robot Swarms
+                            p.project-dates May 2024 - Aug 2024
+                            .project-tags
+                                span.tag Swarm Robotics
+                                span.tag Flocking
+                    .col-md-6
+                        .project-card.glass-card.reveal
+                            .project-card-top
+                                i.fas.fa-shield-halved.project-icon
+                                a.project-github(href='https://github.com/MARSLab-UTRGV/Foraging_Swarm_Defense', target='_blank', aria-label='Foraging Swarm Defense on GitHub')
+                                    i.fab.fa-github
+                            h4.project-title Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms
+                            p.project-dates Aug 2023 - May 2024
+                            .project-tags
+                                span.tag Swarm Security
+                                span.tag Pheromone Trails
+                    .col-md-6
+                        .project-card.glass-card.reveal
+                            .project-card-top
+                                i.fas.fa-route.project-icon
+                                a.project-github(href='https://github.com/MARSLab-UTRGV/Adaptive-Multiple-Distributed-Spiral-Search-Algorithm', target='_blank', aria-label='Adaptive Spiral Search Algorithm on GitHub')
+                                    i.fab.fa-github
+                            h4.project-title Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
+                            p.project-dates Jan 2023 - Jun 2023
+                            .project-tags
+                                span.tag Path Planning
+                                span.tag Foraging Swarms
+                    .col-md-6
+                        .project-card.glass-card.reveal
+                            .project-card-top
+                                i.fas.fa-virus-slash.project-icon
+                                a.project-github(href='https://github.com/MARSLab-UTRGV/CPFA_DoS', target='_blank', aria-label='CPFA DoS on GitHub')
+                                    i.fab.fa-github
+                            h4.project-title Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms
+                            p.project-dates Aug 2022 - May 2023
+                            .project-tags
+                                span.tag Swarm Security
+                                span.tag Quarantine Strategies
+                    //- li.mb-4
+                    //-     h4.text-secondary RTEC (Rapid Transport Environmental Chamber)
+                    //-     p Feb 2018 - Dec 2019
+                    //- li.mb-4
+                    //-     h4.text-secondary Object Detection Application for Android
+                    //-     p Jan 2019 - Jun 2019
 
         // Research Publications Section
-        section#publications.page-section.publications
+        section#publications.page-section
             .container
                 // Research Publications Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Research Publications
-                // Icon Divider
+                span.section-kicker publications
+                h2.page-section-heading.text-center.text-uppercase Research Publications
+                // Divider
                 .divider-custom
                     .divider-custom-line
-                // Publications List
-                .row.justify-content-center
-                    .col-lg-8
-                        ul.list-unstyled
-                            li.mb-4
-                                h4.text-secondary Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms
-                                p IEEE · Jun 24, 2024
-                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/10597515/', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms
-                                p IEEE · Apr 19, 2024
-                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/10585509/', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
-                                p IEEE · Jun 6, 2023
-                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/10229868', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Reliability and Security of Extreme Parallelism
-                                p IEEE · Oct 19, 2021
-                                a.btn.btn-primary(href='https://ieeexplore.ieee.org/abstract/document/9580723', target='_blank') Check it out!
-                            li.mb-4
-                                h4.text-secondary Security and Reliability of Safety-Critical RTOS
-                                p Springer Nature · Jun 25, 2021
-                                a.btn.btn-primary(href='https://rdcu.be/cneJY', target='_blank') Check it out!
+                // Publications Timeline
+                .timeline(data-stagger)
+                    .timeline-item.reveal
+                        .timeline-card.glass-card
+                            .pub-meta
+                                span.pub-venue.venue-ieee IEEE
+                                span.pub-date Jun 24, 2024
+                            h4.pub-title Detection and Mitigation of Misleading Pheromone Trails in Foraging Robot Swarms
+                            a.pub-link(href='https://ieeexplore.ieee.org/abstract/document/10597515/', target='_blank') Read the paper #[i.fas.fa-arrow-up-right-from-square]
+                    .timeline-item.reveal
+                        .timeline-card.glass-card
+                            .pub-meta
+                                span.pub-venue.venue-ieee IEEE
+                                span.pub-date Apr 19, 2024
+                            h4.pub-title Controlling Adversarial Pheromone-Based Infections via Quarantine Strategies in Foraging Robot Swarms
+                            a.pub-link(href='https://ieeexplore.ieee.org/abstract/document/10585509/', target='_blank') Read the paper #[i.fas.fa-arrow-up-right-from-square]
+                    .timeline-item.reveal
+                        .timeline-card.glass-card
+                            .pub-meta
+                                span.pub-venue.venue-ieee IEEE
+                                span.pub-date Jun 6, 2023
+                            h4.pub-title Adaptive Multiple Distributed Bidirectional Spiral Path Planning for Foraging Robot Swarms
+                            a.pub-link(href='https://ieeexplore.ieee.org/abstract/document/10229868', target='_blank') Read the paper #[i.fas.fa-arrow-up-right-from-square]
+                    .timeline-item.reveal
+                        .timeline-card.glass-card
+                            .pub-meta
+                                span.pub-venue.venue-ieee IEEE
+                                span.pub-date Oct 19, 2021
+                            h4.pub-title Reliability and Security of Extreme Parallelism
+                            a.pub-link(href='https://ieeexplore.ieee.org/abstract/document/9580723', target='_blank') Read the paper #[i.fas.fa-arrow-up-right-from-square]
+                    .timeline-item.reveal
+                        .timeline-card.glass-card
+                            .pub-meta
+                                span.pub-venue.venue-springer Springer Nature
+                                span.pub-date Jun 25, 2021
+                            h4.pub-title Security and Reliability of Safety-Critical RTOS
+                            a.pub-link(href='https://rdcu.be/cneJY', target='_blank') Read the paper #[i.fas.fa-arrow-up-right-from-square]
 
         // Contact Section
         section#contact.page-section
             .container
                 // Contact Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contact Me
-                // Icon Divider
+                span.section-kicker contact
+                h2.page-section-heading.text-center.text-uppercase Contact Me
+                // Divider
                 .divider-custom
                     .divider-custom-line
                 // Form broken notification
@@ -226,100 +289,101 @@ html(lang='en')
                 // Contact Section Form
                 .row.justify-content-center
                     .col-lg-8.col-xl-7
-                        form#contactForm(action="https://formspree.io/f/xvgpndkb", method="POST", novalidate)
-                            // Name input
-                            .form-floating.mb-3
-                                input#name.form-control(
-                                    type='text',
-                                    name='name',
-                                    placeholder='Enter your name...',
-                                    required
-                                    autocomplete='name'
+                        .contact-panel.glass-card.reveal
+                            form#contactForm(action="https://formspree.io/f/xvgpndkb", method="POST", novalidate)
+                                // Name input
+                                .form-floating.mb-3
+                                    input#name.form-control(
+                                        type='text',
+                                        name='name',
+                                        placeholder='Enter your name...',
+                                        required
+                                        autocomplete='name'
+                                    )
+                                    label(for='name') Full name
+                                    .invalid-feedback
+                                        | A name is required.
+
+                                // Email address input
+                                .form-floating.mb-3
+                                    input#email.form-control(
+                                        type='email',
+                                        name='email',
+                                        placeholder='name@example.com',
+                                        required
+                                        autocomplete='email'
+                                    )
+                                    label(for='email') Email address
+                                    .invalid-feedback
+                                        | A valid email is required.
+
+                                // Phone number input (optional)
+                                .form-floating.mb-3
+                                    input#phone.form-control(
+                                        type='tel',
+                                        name='phone',
+                                        placeholder='(123) 456-7890',
+                                        autocomplete='tel'
+                                    )
+                                    label(for='phone') Phone number (optional)
+
+                                // Message input
+                                .form-floating.mb-3
+                                    textarea#message.form-control(
+                                        placeholder='Enter your message here...',
+                                        name='message',
+                                        style='height: 10rem;',
+                                        required
+                                        autocomplete='off'
+                                    )
+                                    label(for='message') Message
+                                    .invalid-feedback
+                                        | A message is required.
+
+                                // Recruiter question
+                                .form-floating.mb-3
+                                    .d-flex.align-items-center
+                                        label.form-label.me-3(for='recruiter-yes') Are you a recruiter?
+                                        .form-check.form-check-inline
+                                            input.form-check-input#recruiter-yes(
+                                                type='radio',
+                                                name='recruiter',
+                                                value='yes',
+                                                required
+                                            )
+                                            label.form-check-label(for='recruiter-yes') Yes
+                                        .form-check.form-check-inline
+                                            input.form-check-input#recruiter-no(
+                                                type='radio',
+                                                name='recruiter',
+                                                value='no',
+                                                checked,
+                                                required
+                                            )
+                                            label.form-check-label(for='recruiter-no') No
+                                    // Company field, visible when 'Yes' is selected
+                                    .collapse#companyField(aria-hidden='true')
+                                        .form-floating.mb-3
+                                            input#company.form-control(
+                                                type='text',
+                                                placeholder='Enter your company...',
+                                                required,
+                                                disabled,
+                                                autocomplete='organization'
+                                            )
+                                            label(for='company') Company or Business Name
+                                            .invalid-feedback
+                                                | A company or business name is required.
+
+                                // Hidden Subject
+                                input#subject.form-control(
+                                    type='hidden',
+                                    name='subject',
+                                    value='[Formspree] Form Submission'
                                 )
-                                label(for='name') Full name
-                                .invalid-feedback
-                                    | A name is required.
 
-                            // Email address input
-                            .form-floating.mb-3
-                                input#email.form-control(
-                                    type='email',
-                                    name='email',
-                                    placeholder='name@example.com',
-                                    required
-                                    autocomplete='email'
-                                )
-                                label(for='email') Email address
-                                .invalid-feedback
-                                    | A valid email is required.
-
-                            // Phone number input (optional)
-                            .form-floating.mb-3
-                                input#phone.form-control(
-                                    type='tel',
-                                    name='phone',
-                                    placeholder='(123) 456-7890',
-                                    autocomplete='tel'
-                                )
-                                label(for='phone') Phone number (optional)
-
-                            // Message input
-                            .form-floating.mb-3
-                                textarea#message.form-control(
-                                    placeholder='Enter your message here...',
-                                    name='message',
-                                    style='height: 10rem;',
-                                    required
-                                    autocomplete='off'
-                                )
-                                label(for='message') Message
-                                .invalid-feedback
-                                    | A message is required.
-
-                            // Recruiter question
-                            .form-floating.mb-3
-                                .d-flex.align-items-center
-                                    label.form-label.me-3(for='recruiter-yes') Are you a recruiter?
-                                    .form-check.form-check-inline
-                                        input.form-check-input#recruiter-yes(
-                                            type='radio',
-                                            name='recruiter',
-                                            value='yes',
-                                            required
-                                        )
-                                        label.form-check-label(for='recruiter-yes') Yes
-                                    .form-check.form-check-inline
-                                        input.form-check-input#recruiter-no(
-                                            type='radio',
-                                            name='recruiter',
-                                            value='no',
-                                            checked,
-                                            required
-                                        )
-                                        label.form-check-label(for='recruiter-no') No
-                                // Company field, visible when 'Yes' is selected
-                                .collapse#companyField(aria-hidden='true')
-                                    .form-floating.mb-3
-                                        input#company.form-control(
-                                            type='text',
-                                            placeholder='Enter your company...',
-                                            required,
-                                            disabled,
-                                            autocomplete='organization'
-                                        )
-                                        label(for='company') Company or Business Name
-                                        .invalid-feedback
-                                            | A company or business name is required.
-
-                            // Hidden Subject
-                            input#subject.form-control(
-                                type='hidden',
-                                name='subject',
-                                value='[Formspree] Form Submission'
-                            )
-
-                            // Submit Button
-                            button#submitButton.btn.btn-primary.btn-xl(type='submit') Send
+                                // Submit Button
+                                button#submitButton.btn.btn-primary.btn-xl(type='submit') Send
 
         // Footer
         footer.footer.text-center
@@ -349,7 +413,7 @@ html(lang='en')
         //- <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="ryanluna319" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
         // Copyright Section
-        div.copyright.py-4.text-center.text-white
+        div.copyright.py-4.text-center
             .container
                 small Copyright &copy; 2024 Ryan Luna.
                 br
@@ -357,6 +421,9 @@ html(lang='en')
                 br
                 | Personal information such as name, images, and other identifying details are not for reuse or distribution without explicit permission.
 
+        // Back to top
+        button#back-to-top(type='button', aria-label='Back to top')
+            i.fas.fa-chevron-up
 
         // Portfolio Modals
         //- include includes/portfolio-modal-template.pug
@@ -372,3 +439,6 @@ html(lang='en')
 
         // Skills JS
         script(src='js/skills.js')
+
+        // Visual effects JS
+        script(src='js/effects.js')
