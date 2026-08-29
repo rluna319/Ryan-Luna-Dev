@@ -1,49 +1,55 @@
 #skills {
-  .skills-container {
+  .skills-marquee {
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .skills-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: skills-marquee 32s linear infinite;
+  }
+
+  .skills-marquee:hover .skills-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .skills-marquee-group {
     display: flex;
     gap: 15px;
-    overflow-x: auto;
-    padding: 10px;
-    scroll-behavior: smooth;
+    flex: 0 0 auto;
+    padding-right: 15px;
+  }
 
-    // Custom Scrollbar
-    &::-webkit-scrollbar {
-      height: 8px; // Increase scrollbar height for visibility
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.1); // Thumb color
-      border-radius: 10px;
-    }
-    &::-webkit-scrollbar-track {
-      background-color: $dark; // Track color
-      border-radius: 10px;
-    }
+  .skill-icon {
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    line-height: 1;
+    flex: 0 0 auto;
+  }
 
-    .skill-icon {
-      width: 100px;
-      height: 100px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4.5rem;
-      line-height: 1;
-      flex: 0 0 auto;
-    }
+  .gh-icon {
+    color: $light;
+  }
 
-    .gh-icon {
-      color: $light;
-    }
+  .linux-icon {
+    color: $light;
+  }
 
-    .linux-icon {
-      color: $light;
-    }
+}
 
-    // Make sure scrolling works smoothly on small screens
-    @media (max-width: 768px) {
-      .skills-container {
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
-    }
+@keyframes skills-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

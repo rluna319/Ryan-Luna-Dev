@@ -25,6 +25,14 @@
     .masthead-avatar {
         width: 15rem;
     }
+
+    // Waving hand GIF in the heading (animation is baked into the GIF)
+    .wave {
+        display: inline-block;
+        width: 1.2em;
+        height: 1.2em;
+        vertical-align: -0.2em; // sit on the text baseline like a glyph
+    }
 }
 
 .masthead-avatar {

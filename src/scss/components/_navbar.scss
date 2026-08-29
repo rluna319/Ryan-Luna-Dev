@@ -15,12 +15,15 @@
 
         #console-logo{
             position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
 
             #logo-show-cursor{
                 width: 40px;
                 height: 40px;
             }
-        }        
+        }
     }
 
     .navbar-nav {

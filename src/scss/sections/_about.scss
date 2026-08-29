@@ -19,6 +19,17 @@
         border-radius: 10px; // Softens the image with rounded corners
         max-width: 100%; // Makes sure image scales well in smaller screens
     }
+
+    // Default link color matches the section's dark background and would be
+    // invisible here, so override it explicitly.
+    a {
+        color: $white;
+        text-decoration-color: rgba($white, 0.5);
+
+        &:hover {
+            color: $light-gray;
+        }
+    }
 }
 
 .about-container {
