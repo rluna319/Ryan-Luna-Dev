@@ -1,2 +1,7 @@
 node_modules
 config
+
+# Windows NTFS alternate-data-stream metadata (e.g. from downloads),
+# accidentally stageable when `git add` is run from WSL against /mnt/c
+*:Zone.Identifier
+*:shield
